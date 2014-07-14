@@ -23,7 +23,7 @@ public class TemplateController implements BackController {
 		String templateFileName = uri.get(1);
 		LOGGER.debug("templateFileName: " + templateFileName);
 		String root = context.getRealPath(Constants.RESOURCE_ROOT);
-		String path = root +"html_templates/"+ templateFileName;
+		String path = root +"templates/html/"+ templateFileName;
 		Result result = readTemplate(path);
 		
 		return result;
