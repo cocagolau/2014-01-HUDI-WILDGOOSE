@@ -206,13 +206,8 @@
 						<configuration>
 							<charset>UTF-8</charset>
 							<webappSourceDir>${basedir}/webapp</webappSourceDir>
-							<!-- <cssSourceDir>css</cssSourceDir>
-							<cssSourceFiles>
-								<cssSourceFile>file-1.css</cssSourceFile>
-							</cssSourceFiles>
-							<cssFinalFile>style.css</cssFinalFile> -->
-							
-							<jsSourceDir>CAGE/src</jsSourceDir>
+
+							<jsSourceDir>scripts/CAGE/src</jsSourceDir>
 							<jsSourceFiles>
 								<jsSourceFile>CAGE.event.emitter.js</jsSourceFile>
 								<jsSourceFile>CAGE.util.js</jsSourceFile>

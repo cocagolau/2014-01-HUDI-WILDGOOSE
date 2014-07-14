@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-zoom=1, user-scalable=no">
-<link type="text/css" rel="stylesheet" href="/CAGE/src/CAGE.ui.parallax.css" />
+<!-- <link type="text/css" rel="stylesheet" href="/CAGE/src/CAGE.ui.parallax.css" /> -->
+<link type="text/css" rel="stylesheet" href="/scripts/CAGE/src/CAGE.ui.parallax.css" />
 <link type="text/css" rel="stylesheet" href="/stylesheet/base.css" />
 <link type="text/css" rel="stylesheet" href="/stylesheet/basic_layout.css" />
 <link type="text/css" rel="stylesheet" href="/stylesheet/card.css" />
@@ -98,18 +99,22 @@
 	<footer class="footer"></footer>
 </div>
 
-<script type="text/javascript" src="/CAGE/src/CAGE.ajax.js"></script>
+<!-- <script type="text/javascript" src="/CAGE/src/CAGE.ajax.js"></script>
 <script type="text/javascript" src="/CAGE/src/CAGE.util.js"></script>
 <script type="text/javascript" src="/CAGE/src/CAGE.event.emitter.js"></script>
-<script src="/CAGE/src/CAGE.ui.parallax.js"></script>
+<script type="text/javascript" src="/CAGE/src/CAGE.ui.parallax.js"></script> -->
+<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ajax.js"></script>
+<script type="text/javascript" src="/scripts/CAGE/src/CAGE.util.js"></script>
+<script type="text/javascript" src="/scripts/CAGE/src/CAGE.event.emitter.js"></script>
+<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ui.parallax.js"></script>
 
 
 <c:choose>
 	<c:when test="${ initParam.debuggerMode eq 'on' }">
-		<script type="text/javascript" src="/CAGE/src/CAGE.ajax.js"></script>
-		<script type="text/javascript" src="/CAGE/src/CAGE.util.js"></script>
-		<script type="text/javascript" src="/CAGE/src/CAGE.event.emitter.js"></script>
-		<script type="text/javascript" src="/CAGE/src/CAGE.ui.parallax.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ajax.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.util.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.event.emitter.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ui.parallax.js"></script>
 	
 		<script type="text/javascript" src="/scripts/WILDGOOSE/user/WILDGOOSE.user.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/validation/WILDGOOSE.validator.js"></script>
@@ -120,7 +125,7 @@
 		<script type="text/javascript" src="/scripts/APP/APP.page.error.js"></script>
 	</c:when>
 	<c:otherwise>
-		<script type="text/javascript" src="/CAGE/src/CAGE.min.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/WILDGOOSE.min.js"></script>
 		<script type="text/javascript" src="/scripts/APP/APP.min.js"></script>
 	</c:otherwise>
