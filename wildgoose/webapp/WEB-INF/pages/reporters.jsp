@@ -18,7 +18,7 @@
 <body>
 <div class="wrap viewport">
 <header class="header"> 
-	<%@ include file="/header.jsp" %> 
+	<%@ include file="/WEB-INF/pages/header.jsp" %> 
 </header>
 <div class="container test-outline">
 	<!-- 기자 정보 -->
