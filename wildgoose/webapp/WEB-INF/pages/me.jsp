@@ -26,7 +26,7 @@
 
 <div class="wrap">
 	<header class="header">
-		<%@ include file ="/header.jsp" %>
+		<%@ include file ="/WEB-INF/pages/header.jsp" %>
 	</header>
 	<%-- session 존재시 --%>
 	<c:if test="${ not empty sessionScope.userId }"></c:if>
@@ -39,8 +39,7 @@
 					<div class="dashboard-header">
 						<h2>나의 기자</h2>
 					</div>
-					<%-- <%@ include file = "/jsp_templates/content-favorite-reporter.jsp" %> --%>
-					<%@ include file = "/templates/jsp/content-favorite-reporter.jsp" %>
+					<%@ include file = "/WEB-INF/templates/jsp/content-favorite-reporter.jsp" %>
 				</div>
 				
 				
@@ -48,16 +47,14 @@
 					<div class="content-main-header">
 						<h2>타임라인</h2>
 					</div>
-					<%-- <%@ include file = "/jsp_templates/content-timeline.jsp" %> --%>
-					<%@ include file = "/templates/jsp/content-timeline.jsp" %>
+					<%@ include file = "/WEB-INF/templates/jsp/content-timeline.jsp" %>
 				</div>
 				
 				<div class="dashboard dashboard-right">
 					<div class="dashboard-header">
 						<h2>추천기자</h2>
 					</div>
-					<%-- <%@ include file = "/jsp_templates/content-recommanded-reporter.jsp" %> --%>
-					<%@ include file = "/templates/jsp/content-recommanded-reporter.jsp" %>
+					<%@ include file = "/WEB-INF/templates/jsp/content-recommanded-reporter.jsp" %>
 				</div>
 			</c:when>
 				
@@ -67,8 +64,7 @@
 					<div class="content-main-header">
 						<h3>추천 기자를 구독해보세요</h3>
 					</div>
-					<%-- <%@ include file = "/jsp_templates/content-recommanded-reporter.jsp" %> --%>
-					<%@ include file = "/templates/jsp/content-recommanded-reporter.jsp" %>
+					<%@ include file = "/WEB-INF/templates/jsp/content-recommanded-reporter.jsp" %>
 				</div>
 				<button class="start-me disable">WILDGOOSE 시작하기</button>
 			</c:otherwise>

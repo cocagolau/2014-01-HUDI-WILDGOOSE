@@ -15,7 +15,7 @@
 
 <div class="wrap">
 	<header class="header">
-		<%@ include file ="/header.jsp" %>
+		<%@ include file ="/WEB-INF/pages/header.jsp" %>
 	</header>
 	<div class="container">
 		<div class="logo">
@@ -51,8 +51,7 @@
 					</c:if>
 					<%-- searchResult 표시부 --%>
 					<c:forEach var="reporter" items="${ requestScope.data.reporters }" ><li class="card card-reporter">
-						<%-- <%@ include file = "jsp_templates/reporterCard.jsp" %> --%>
-						<%@ include file = "templates/jsp/reporterCard.jsp" %>
+						<%@ include file = "/WEB-INF/templates/jsp/reporterCard.jsp" %>
 					</li></c:forEach>
 				</c:when>
 

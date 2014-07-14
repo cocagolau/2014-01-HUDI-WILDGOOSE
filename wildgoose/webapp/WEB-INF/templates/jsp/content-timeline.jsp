@@ -6,7 +6,7 @@
 	<ul>
 		<c:forEach var="article" items="${ requestScope.data.articles }">
 		<li class="card">
-			<%@ include file = "/templates/jsp/articleCard.jsp" %>
+			<%@ include file = "/WEB-INF/templates/jsp/articleCard.jsp" %>
 		</li>
 		</c:forEach>
 	</ul>
