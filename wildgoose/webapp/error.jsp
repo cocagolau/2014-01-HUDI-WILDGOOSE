@@ -63,12 +63,14 @@
 			<c:choose>
 				<%-- 로그인 페이지를 보여줄 때 --%>
 				<c:when test="${ requestScope.data.pageName eq 'login' }">
-					<%@ include file ="/jsp_templates/login.jsp" %>
+					<%-- <%@ include file ="/jsp_templates/login.jsp" %> --%>
+					<%@ include file ="/templates/jsp/login.jsp" %>
 				</c:when>
 				
 				<%-- 가입 페이지를 보여줄 때 --%>
 				<c:when test="${ requestScope.data.pageName eq 'join' }">
-					<%@ include file ="/jsp_templates/join.jsp" %>
+					<%-- <%@ include file ="/jsp_templates/join.jsp" %> --%>
+					<%@ include file ="/templates/jsp/join.jsp" %>
 				</c:when>
 				
 				<%-- 나머지 경우 --%>

@@ -5,7 +5,7 @@
 	<c:if test="${ not empty sessionScope.userId }">
 		<c:forEach var="reporter" items="${ requestScope.data.recommands }" varStatus="status">
 		<li class="card card-reporter">
-			<%@ include file = "/jsp_templates/reporterCard.jsp" %>
+			<%@ include file = "/templates/jsp/reporterCard.jsp" %>
 		</li>
 		</c:forEach>
 	</c:if>
