@@ -101,7 +101,7 @@
 	<!-- value가 on이 아닌 경우만 *.min.js로 로딩 -->
 	<context-param>
 		<param-name>debuggerMode</param-name>
-		<param-value>off</param-value>
+		<param-value>on</param-value>
 	</context-param>
 	
 
