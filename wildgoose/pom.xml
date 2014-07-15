@@ -205,17 +205,17 @@
 						<phase>generate-resources</phase>
 						<configuration>
 							<charset>UTF-8</charset>
-							<webappSourceDir>${basedir}/webapp</webappSourceDir>
+							<webappSourceDir>${basedir}/webapp/scripts</webappSourceDir>
 
-							<jsSourceDir>scripts/CAGE/src</jsSourceDir>
+							<jsSourceDir>CAGE</jsSourceDir>
 							<jsSourceFiles>
-								<jsSourceFile>CAGE.event.emitter.js</jsSourceFile>
-								<jsSourceFile>CAGE.util.js</jsSourceFile>
-								<jsSourceFile>CAGE.type.observer.js</jsSourceFile>
-								<jsSourceFile>CAGE.ajax.js</jsSourceFile>
-								<jsSourceFile>CAGE.ui.popup.js</jsSourceFile>
-								<jsSourceFile>CAGE.ui.popup.ajax.js</jsSourceFile>
-								<jsSourceFile>CAGE.ui.parallax.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.event.emitter.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.util.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.type.observer.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.ajax.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.ui.popup.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.ui.popup.ajax.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.ui.parallax.js</jsSourceFile>
 							</jsSourceFiles>
 								
 							<jsFinalFile>CAGE.js</jsFinalFile>
@@ -226,7 +226,7 @@
 		                    <skipMerge>true</skipMerge> 모르겠음
 		                    <verbose>true</verbose> -->
 		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
-							<webappTargetDir>${basedir}/webapp</webappTargetDir>
+							<webappTargetDir>${basedir}/webapp/scripts</webappTargetDir>
 						</configuration>
 						<goals>
 							<goal>minify</goal>

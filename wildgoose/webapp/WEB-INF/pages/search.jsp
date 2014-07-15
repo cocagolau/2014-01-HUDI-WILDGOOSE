@@ -88,7 +88,8 @@
 		<script type="text/javascript" src="/scripts/APP/APP.page.search.js"></script>
 	</c:when>
 	<c:otherwise>
-		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script>
+		<!-- <script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script> -->
+		<script type="text/javascript" src="/scripts/CAGE/CAGE.min.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/WILDGOOSE.min.js"></script>
 		<script type="text/javascript" src="/scripts/APP/APP.min.js"></script>
 	</c:otherwise>
