@@ -131,18 +131,18 @@ li[class*='nav'] a  {
 		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.event.emitter.js"></script>
 		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ui.popup.js"></script>
 		
-		<script type="text/javascript" src="/scripts/WILDGOOSE/user/WILDGOOSE.user.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/validation/WILDGOOSE.validator.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.super_type.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.login.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.logout.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.join.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.withdraw.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.change.pw.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/modal/WILDGOOSE.modal.join.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/modal/WILDGOOSE.modal.login.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/modal/WILDGOOSE.modal.setting.js"></script>
-		<script type="text/javascript" src="/scripts/APP/APP.page.header.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/user/WILDGOOSE.user.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/validation/WILDGOOSE.validator.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.super_type.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.login.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.logout.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.join.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.withdraw.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.change.pw.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/modal/WILDGOOSE.modal.join.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/modal/WILDGOOSE.modal.login.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/modal/WILDGOOSE.modal.setting.js"></script>
+		<script type="text/javascript" src="/scripts/APP/src/APP.page.header.js"></script>
 	</c:when>
 	<c:otherwise>
 		<!-- <script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script> -->
