@@ -152,37 +152,38 @@
 						<phase>generate-resources</phase>
 						<configuration>
 							<charset>UTF-8</charset>
-							<webappSourceDir>${basedir}/webapp</webappSourceDir>
-								
-							<jsSourceDir>scripts/WILDGOOSE</jsSourceDir>
+							<!-- <webappSourceDir>${basedir}/webapp</webappSourceDir> -->
+							<webappSourceDir>${basedir}/webapp/scripts</webappSourceDir>
+							<!-- <jsSourceDir>scripts/WILDGOOSE</jsSourceDir> -->	
+							<jsSourceDir>WILDGOOSE</jsSourceDir>
 							<jsSourceFiles>					
-								<jsSourceFile>user/WILDGOOSE.user.js</jsSourceFile>
+								<jsSourceFile>src/user/WILDGOOSE.user.js</jsSourceFile>
 								
-								<jsSourceFile>ui/WILDGOOSE.drag.js</jsSourceFile>
-								<jsSourceFile>ui/WILDGOOSE.ui.favorite.js</jsSourceFile>
-								<jsSourceFile>ui/WILDGOOSE.ui.favorite.me.js</jsSourceFile>
-								<jsSourceFile>ui/WILDGOOSE.ui.graph.js</jsSourceFile>
-								<jsSourceFile>ui/WILDGOOSE.ui.startme.js</jsSourceFile>
-								<jsSourceFile>validation/WILDGOOSE.validator.js</jsSourceFile>
+								<jsSourceFile>src/ui/WILDGOOSE.drag.js</jsSourceFile>
+								<jsSourceFile>src/ui/WILDGOOSE.ui.favorite.js</jsSourceFile>
+								<jsSourceFile>src/ui/WILDGOOSE.ui.favorite.me.js</jsSourceFile>
+								<jsSourceFile>src/ui/WILDGOOSE.ui.graph.js</jsSourceFile>
+								<jsSourceFile>src/ui/WILDGOOSE.ui.startme.js</jsSourceFile>
+								<jsSourceFile>src/validation/WILDGOOSE.validator.js</jsSourceFile>
 								
-								<jsSourceFile>account/WILDGOOSE.account.super_type.js</jsSourceFile>
-								<jsSourceFile>account/WILDGOOSE.account.change.pw.js</jsSourceFile>
-								<jsSourceFile>account/WILDGOOSE.account.join.js</jsSourceFile>
-								<jsSourceFile>account/WILDGOOSE.account.login.js</jsSourceFile>
-								<jsSourceFile>account/WILDGOOSE.account.logout.js</jsSourceFile>
-								<jsSourceFile>account/WILDGOOSE.account.withdraw.js</jsSourceFile>
+								<jsSourceFile>src/account/WILDGOOSE.account.super_type.js</jsSourceFile>
+								<jsSourceFile>src/account/WILDGOOSE.account.change.pw.js</jsSourceFile>
+								<jsSourceFile>src/account/WILDGOOSE.account.join.js</jsSourceFile>
+								<jsSourceFile>src/account/WILDGOOSE.account.login.js</jsSourceFile>
+								<jsSourceFile>src/account/WILDGOOSE.account.logout.js</jsSourceFile>
+								<jsSourceFile>src/account/WILDGOOSE.account.withdraw.js</jsSourceFile>
 								
-								<jsSourceFile>modal/WILDGOOSE.modal.join.js</jsSourceFile>
-								<jsSourceFile>modal/WILDGOOSE.modal.login.js</jsSourceFile>
-								<jsSourceFile>modal/WILDGOOSE.modal.setting.js</jsSourceFile>
+								<jsSourceFile>src/modal/WILDGOOSE.modal.join.js</jsSourceFile>
+								<jsSourceFile>src/modal/WILDGOOSE.modal.login.js</jsSourceFile>
+								<jsSourceFile>src/modal/WILDGOOSE.modal.setting.js</jsSourceFile>
 								
-								<jsSourceFile>more/WILDGOOSE.more.super_type.js</jsSourceFile>
-								<jsSourceFile>more/WILDGOOSE.more.article.js</jsSourceFile>
-								<jsSourceFile>more/WILDGOOSE.more.search.js</jsSourceFile>
+								<jsSourceFile>src/more/WILDGOOSE.more.super_type.js</jsSourceFile>
+								<jsSourceFile>src/more/WILDGOOSE.more.article.js</jsSourceFile>
+								<jsSourceFile>src/more/WILDGOOSE.more.search.js</jsSourceFile>
 
-								<jsSourceFile>search/WILDGOOSE.search.auto_complement.js</jsSourceFile>
-								<jsSourceFile>search/WILDGOOSE.search.submit.js</jsSourceFile>
-								<jsSourceFile>search/WILDGOOSE.search.js</jsSourceFile>
+								<jsSourceFile>src/search/WILDGOOSE.search.auto_complement.js</jsSourceFile>
+								<jsSourceFile>src/search/WILDGOOSE.search.submit.js</jsSourceFile>
+								<jsSourceFile>src/search/WILDGOOSE.search.js</jsSourceFile>
 							</jsSourceFiles>
 							
 							<jsFinalFile>WILDGOOSE.js</jsFinalFile>
@@ -190,7 +191,8 @@
 							<!-- <closureCompilationLevel>WHITESPACE_ONLY</closureCompilationLevel> -->
 							<closureCompilationLevel>SIMPLE_OPTIMIZATIONS</closureCompilationLevel>
 		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
-							<webappTargetDir>${basedir}/webapp</webappTargetDir>
+							<!-- <webappTargetDir>${basedir}/webapp</webappTargetDir> -->
+							<webappTargetDir>${basedir}/webapp/scripts</webappTargetDir>
 						</configuration>
 						<goals>
 							<goal>minify</goal>
@@ -205,17 +207,17 @@
 						<phase>generate-resources</phase>
 						<configuration>
 							<charset>UTF-8</charset>
-							<webappSourceDir>${basedir}/webapp</webappSourceDir>
+							<webappSourceDir>${basedir}/webapp/scripts</webappSourceDir>
 
-							<jsSourceDir>scripts/CAGE/src</jsSourceDir>
+							<jsSourceDir>CAGE</jsSourceDir>
 							<jsSourceFiles>
-								<jsSourceFile>CAGE.event.emitter.js</jsSourceFile>
-								<jsSourceFile>CAGE.util.js</jsSourceFile>
-								<jsSourceFile>CAGE.type.observer.js</jsSourceFile>
-								<jsSourceFile>CAGE.ajax.js</jsSourceFile>
-								<jsSourceFile>CAGE.ui.popup.js</jsSourceFile>
-								<jsSourceFile>CAGE.ui.popup.ajax.js</jsSourceFile>
-								<jsSourceFile>CAGE.ui.parallax.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.event.emitter.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.util.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.type.observer.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.ajax.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.ui.popup.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.ui.popup.ajax.js</jsSourceFile>
+								<jsSourceFile>src/CAGE.ui.parallax.js</jsSourceFile>
 							</jsSourceFiles>
 								
 							<jsFinalFile>CAGE.js</jsFinalFile>
@@ -226,7 +228,7 @@
 		                    <skipMerge>true</skipMerge> 모르겠음
 		                    <verbose>true</verbose> -->
 		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
-							<webappTargetDir>${basedir}/webapp</webappTargetDir>
+							<webappTargetDir>${basedir}/webapp/scripts</webappTargetDir>
 						</configuration>
 						<goals>
 							<goal>minify</goal>
@@ -241,16 +243,18 @@
 						<phase>generate-resources</phase>
 						<configuration>
 							<charset>UTF-8</charset>
-							<webappSourceDir>${basedir}/webapp</webappSourceDir>
+							<!-- <webappSourceDir>${basedir}/webapp</webappSourceDir> -->
+							<webappSourceDir>${basedir}/webapp/scripts</webappSourceDir>
 								
-							<jsSourceDir>scripts/APP</jsSourceDir>
+							<!-- <jsSourceDir>scripts/APP</jsSourceDir> -->
+							<jsSourceDir>APP</jsSourceDir>
 							<jsSourceFiles>
-								<jsSourceFile>APP.page.header.js</jsSourceFile>
-								<jsSourceFile>APP.page.favorite.js</jsSourceFile>
-								<jsSourceFile>APP.page.me.js</jsSourceFile>
-								<jsSourceFile>APP.page.reporter.js</jsSourceFile>
-								<jsSourceFile>APP.page.search.js</jsSourceFile>
-								<jsSourceFile>APP.page.error.js</jsSourceFile>
+								<jsSourceFile>src/APP.page.header.js</jsSourceFile>
+								<jsSourceFile>src/APP.page.favorite.js</jsSourceFile>
+								<jsSourceFile>src/APP.page.me.js</jsSourceFile>
+								<jsSourceFile>src/APP.page.reporter.js</jsSourceFile>
+								<jsSourceFile>src/APP.page.search.js</jsSourceFile>
+								<jsSourceFile>src/APP.page.error.js</jsSourceFile>
 							</jsSourceFiles>
 							
 							<jsFinalFile>APP.js</jsFinalFile>
@@ -258,7 +262,8 @@
 							<!-- <closureCompilationLevel>WHITESPACE_ONLY</closureCompilationLevel> -->
 							<closureCompilationLevel>SIMPLE_OPTIMIZATIONS</closureCompilationLevel>
 		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
-							<webappTargetDir>${basedir}/webapp</webappTargetDir>
+							<!-- <webappTargetDir>${basedir}/webapp</webappTargetDir> -->
+							<webappTargetDir>${basedir}/webapp/scripts</webappTargetDir>
 						</configuration>
 						<goals>
 							<goal>minify</goal>

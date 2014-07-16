@@ -77,18 +77,19 @@
 </div>
 <c:choose>
 	<c:when test="${ initParam.debuggerMode eq 'on' }">
-		<script type="text/javascript" src="/scripts/WILDGOOSE/user/WILDGOOSE.user.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/ui/WILDGOOSE.ui.favorite.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/more/WILDGOOSE.more.super_type.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/more/WILDGOOSE.more.search.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/search/WILDGOOSE.search.auto_complement.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/search/WILDGOOSE.search.submit.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/search/WILDGOOSE.search.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/user/WILDGOOSE.user.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/ui/WILDGOOSE.ui.favorite.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/more/WILDGOOSE.more.super_type.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/more/WILDGOOSE.more.search.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/search/WILDGOOSE.search.auto_complement.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/search/WILDGOOSE.search.submit.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/search/WILDGOOSE.search.js"></script>
 				
-		<script type="text/javascript" src="/scripts/APP/APP.page.search.js"></script>
+		<script type="text/javascript" src="/scripts/APP/src/APP.page.search.js"></script>
 	</c:when>
 	<c:otherwise>
-		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script>
+		<!-- <script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script> -->
+		<script type="text/javascript" src="/scripts/CAGE/CAGE.min.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/WILDGOOSE.min.js"></script>
 		<script type="text/javascript" src="/scripts/APP/APP.min.js"></script>
 	</c:otherwise>

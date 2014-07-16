@@ -114,16 +114,17 @@
 		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.event.emitter.js"></script>
 		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ui.parallax.js"></script>
 	
-		<script type="text/javascript" src="/scripts/WILDGOOSE/user/WILDGOOSE.user.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/validation/WILDGOOSE.validator.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.super_type.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.login.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.join.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/user/WILDGOOSE.user.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/validation/WILDGOOSE.validator.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.super_type.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.login.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.join.js"></script>
 		
-		<script type="text/javascript" src="/scripts/APP/APP.page.error.js"></script>
+		<script type="text/javascript" src="/scripts/APP/src/APP.page.error.js"></script>
 	</c:when>
 	<c:otherwise>
-		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script>
+		<!-- <script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script> -->
+		<script type="text/javascript" src="/scripts/CAGE/CAGE.min.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/WILDGOOSE.min.js"></script>
 		<script type="text/javascript" src="/scripts/APP/APP.min.js"></script>
 	</c:otherwise>

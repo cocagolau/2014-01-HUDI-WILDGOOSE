@@ -79,19 +79,20 @@
 		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.util.js"></script>
 		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.event.emitter.js"></script>
 		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ajax.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/user/WILDGOOSE.user.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/user/WILDGOOSE.user.js"></script>
 
-		<script type="text/javascript" src="/scripts/WILDGOOSE/ui/WILDGOOSE.ui.favorite.me.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/ui/WILDGOOSE.ui.startme.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/ui/WILDGOOSE.drag.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/more/WILDGOOSE.more.super_type.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/more/WILDGOOSE.more.article.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/ui/WILDGOOSE.ui.favorite.me.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/ui/WILDGOOSE.ui.startme.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/ui/WILDGOOSE.drag.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/more/WILDGOOSE.more.super_type.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/more/WILDGOOSE.more.article.js"></script>
 		
-		<script type="text/javascript" src="/scripts/APP/APP.page.favorite.js"></script>
-		<script type="text/javascript" src="/scripts/APP/APP.page.me.js"></script>
+		<script type="text/javascript" src="/scripts/APP/src/APP.page.favorite.js"></script>
+		<script type="text/javascript" src="/scripts/APP/src/APP.page.me.js"></script>
 	</c:when>
 	<c:otherwise>
-		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script>
+		<!-- <script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script> -->
+		<script type="text/javascript" src="/scripts/CAGE/CAGE.min.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/WILDGOOSE.min.js"></script>
 		<script type="text/javascript" src="/scripts/APP/APP.min.js"></script>
 	</c:otherwise>

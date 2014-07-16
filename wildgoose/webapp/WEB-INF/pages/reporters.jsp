@@ -88,13 +88,14 @@
 		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ajax.js"></script>
 		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.util.js"></script>
 		
-		<script type="text/javascript" src="/scripts/WILDGOOSE/ui/WILDGOOSE.ui.favorite.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/ui/WILDGOOSE.ui.graph.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/ui/WILDGOOSE.ui.favorite.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/ui/WILDGOOSE.ui.graph.js"></script>
 		
-		<script type="text/javascript" src="/scripts/APP/APP.page.reporter.js"></script>
+		<script type="text/javascript" src="/scripts/APP/src/APP.page.reporter.js"></script>
 	</c:when>
 	<c:otherwise>
-		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script>
+		<!-- <script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script> -->
+		<script type="text/javascript" src="/scripts/CAGE/CAGE.min.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/WILDGOOSE.min.js"></script>
 		<script type="text/javascript" src="/scripts/APP/APP.min.js"></script>
 	</c:otherwise>
