@@ -24,7 +24,9 @@ import next.wildgoose.utility.Constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component("accounts")
 public class AccountController implements BackController {
 
 	private static final Logger LOGGER = LoggerFactory

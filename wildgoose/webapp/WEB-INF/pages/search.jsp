@@ -23,16 +23,29 @@
 		</div>
 		<div class="search search-column">
 			<form class="search_form" action="./search" method="get">
-			<ul class="search-column-box">
-				<li class="search-query-entry">
-					<input type="search" id="query-entry" autocomplete="off" name="q" placeholder="기자 검색" value="${ requestScope.data.searchQuery }" />
-				</li>
-				<li class="search-button">
-					<input type="submit" id="search-action" value ="검색"/>
-				</li>
-			</ul>
-			<%-- 자동완성 --%>
-			<ul class="auto-completion-list"></ul>
+				<!-- <input id="search-box" name="q" placeholder="기자 검색" type="search" autocomplete="off" data-style="" data-feature="auto-complement" data-disable="white-space;none;" />
+				<button data-relation="#search-box">검색</button> -->
+				
+				<!-- <div class="outer-wrapper">
+					<div class="inner-wrapper">
+						<input id="search-box" name="q" placeholder="기자 검색" type="search" autocomplete="off" data-style="search-box" data-feature="auto-complement" data-disable="white-space;none;" />
+					</div>
+					<div class="inner-wrapper">
+						<button data-relation="#search-box">검색</button>
+					</div>
+				</div> -->
+				
+				<ul class="search-column-box">
+					<li class="search-query-entry">
+						<input type="search" id="query-entry" autocomplete="off" name="q" placeholder="기자 검색" value="${ requestScope.data.searchQuery }" />
+					</li>
+					<li class="search-button">
+						<input type="submit" id="search-action" value ="검색"/>
+					</li>
+				</ul>
+				<%-- 자동완성 --%>
+				<ul class="auto-completion-list"></ul>
+			
 			</form>
 		</div>
 		<div class="search-result">

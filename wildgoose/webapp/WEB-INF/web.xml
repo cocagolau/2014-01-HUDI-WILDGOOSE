@@ -30,6 +30,24 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 	<display-name>Archetype Created Web Application</display-name>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/backcontroller.xml
+		</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+			org.springframework.web.context.support.XmlWebApplicationContext
+		</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 
 	<!-- Servlets -->
 	<servlet>
@@ -101,7 +119,7 @@
 	<!-- value가 on이 아닌 경우만 *.min.js로 로딩 -->
 	<context-param>
 		<param-name>debuggerMode</param-name>
-		<param-value>off</param-value>
+		<param-value>on</param-value>
 	</context-param>
 	
 

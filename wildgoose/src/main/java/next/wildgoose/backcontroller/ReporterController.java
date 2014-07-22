@@ -6,6 +6,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Component;
+
 import next.wildgoose.dao.ArticleDAO;
 import next.wildgoose.dao.DummyData;
 import next.wildgoose.dao.NumberOfArticlesDAO;
@@ -20,6 +22,7 @@ import next.wildgoose.framework.Result;
 import next.wildgoose.framework.utility.Uri;
 import next.wildgoose.utility.Constants;
 
+@Component("reporters")
 public class ReporterController implements BackController {
 
 	@Override
