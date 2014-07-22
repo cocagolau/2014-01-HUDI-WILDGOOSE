@@ -50,7 +50,7 @@
 		
 		_accountInit: function() {
 			var randNum = User.getRandomNumber();
-			
+			debugger;
 			this.loginAccount = new Login({
 				method: "POST",
 				url: "/api/v1/session/",

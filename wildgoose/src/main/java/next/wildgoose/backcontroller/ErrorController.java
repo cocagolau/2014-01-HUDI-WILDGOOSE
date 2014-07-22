@@ -5,10 +5,13 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Component;
+
 import next.wildgoose.dto.result.SimpleResult;
 import next.wildgoose.framework.BackController;
 import next.wildgoose.framework.Result;
 
+@Component("error")
 public class ErrorController implements BackController {
 
 	@Override
