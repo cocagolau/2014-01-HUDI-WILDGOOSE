@@ -3,9 +3,12 @@ package next.wildgoose.dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Component;
+
 import next.wildgoose.framework.dao.template.JdbcTemplate;
 import next.wildgoose.framework.dao.template.PreparedStatementSetter;
 
+@Component
 public class SearchKeywordDAO {
 	
 	public boolean addKeywordRecord (final String keyword) {

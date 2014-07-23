@@ -2,7 +2,6 @@ package next.wildgoose.backcontroller;
 
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import next.wildgoose.dao.ReporterDAO;
@@ -15,12 +14,16 @@ import next.wildgoose.utility.Constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("search")
 public class SearchController implements BackController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(SearchController.class.getName());
+	
+	@Autowired
+	private ReporterDAO reporterDao;
 	
 	@Override
 	public Result execute(HttpServletRequest request) {
@@ -55,8 +58,6 @@ public class SearchController implements BackController {
 	
 	private SearchResult getAutoCompleteResult(HttpServletRequest request, String searchQuery, int howMany) {
 		SearchResult searchResult = new SearchResult();
-		ServletContext context = request.getServletContext();
-		ReporterDAO reporterDao = (ReporterDAO) context.getAttribute("ReporterDAO");
 		
 		List<Reporter> reporters = reporterDao.getSimilarNames(searchQuery, howMany);
 		
@@ -71,8 +72,6 @@ public class SearchController implements BackController {
 	
 	private SearchResult getSearchResult (HttpServletRequest request, String searchQuery, int start, int howMany) {
 		SearchResult searchResult = new SearchResult();
-		ServletContext context = request.getServletContext();
-		ReporterDAO reporterDao = (ReporterDAO) context.getAttribute("ReporterDAO");
 		List<Reporter> reporters = null;
 		
 		if (start == 0) {

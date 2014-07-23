@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -24,6 +23,7 @@ import next.wildgoose.utility.Constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("accounts")
@@ -31,6 +31,9 @@ public class AccountController implements BackController {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(AccountController.class.getName());
+	
+	@Autowired
+	private SignDAO signDao;
 
 	@Override
 	public Result execute(HttpServletRequest request) {
@@ -68,9 +71,6 @@ public class AccountController implements BackController {
 		String email = parameterMap.get("email");
 		String oldPassword = parameterMap.get("old_pw");
 		String newPassword = parameterMap.get("new_pw");
-
-		ServletContext context = request.getServletContext();
-		SignDAO signDao = (SignDAO) context.getAttribute("SignDAO");
 
 		HttpSession session = request.getSession();
 		String randNum = (String) session.getAttribute("randNum");
@@ -111,8 +111,6 @@ public class AccountController implements BackController {
 		AccountResult simpleResult = new AccountResult();
 		String email = request.getParameter("email");
 		String hashedPassword = request.getParameter("password");
-		ServletContext context = request.getServletContext();
-		SignDAO signDao = (SignDAO) context.getAttribute("SignDAO");
 
 		HttpSession session = request.getSession();
 		String randNum = (String) session.getAttribute("randNum");
@@ -133,8 +131,6 @@ public class AccountController implements BackController {
 		// 확인하기 추가
 		String email = request.getParameter("email");
 
-		ServletContext context = request.getServletContext();
-		SignDAO signDao = (SignDAO) context.getAttribute("SignDAO");
 		AccountResult accountResult = new AccountResult();
 
 		// 기본 세팅 fail
@@ -153,8 +149,6 @@ public class AccountController implements BackController {
 	}
 
 	private AccountResult usedEmail(HttpServletRequest request, String email) {
-		ServletContext context = request.getServletContext();
-		SignDAO signDao = (SignDAO) context.getAttribute("SignDAO");
 		AccountResult accountResult = new AccountResult();
 
 		if (isJoinable(signDao, email)) {
@@ -174,9 +168,6 @@ public class AccountController implements BackController {
 		String password = request.getParameter("password");
 
 		LOGGER.debug("email: " + email + ",  passw: " + password);
-		ServletContext context = request.getServletContext();
-
-		SignDAO signDao = (SignDAO) context.getAttribute("SignDAO");
 		AccountResult accountResult = new AccountResult();
 
 		// 기본 세팅 fail

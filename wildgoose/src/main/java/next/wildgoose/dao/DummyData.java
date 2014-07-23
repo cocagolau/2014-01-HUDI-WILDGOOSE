@@ -4,6 +4,9 @@ import java.util.Random;
 
 import next.wildgoose.dto.StatPoints;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DummyData{
 	
 	public StatPoints getStatPoints(int reporterId) {

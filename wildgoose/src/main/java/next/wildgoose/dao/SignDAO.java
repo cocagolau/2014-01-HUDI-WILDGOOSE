@@ -4,11 +4,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Component;
+
 import next.wildgoose.framework.dao.template.JdbcTemplate;
 import next.wildgoose.framework.dao.template.PreparedStatementSetter;
 import next.wildgoose.framework.dao.template.RowMapper;
 
-
+@Component
 public class SignDAO {
 	public boolean findEmail (final String email) {	
 		JdbcTemplate t = new JdbcTemplate();
