@@ -80,10 +80,10 @@
     };
     
     popup.prototype.afteropenCallbackRef = function(event){
-//    	debugger;
 		//console.log(event);
-		if(event.propertyName === "-webkit-transform" && this.status.data === false){	
-			
+//    	debugger;
+//		if(event.propertyName === "-webkit-transform" && this.status.data === false){	
+    	if(event.propertyName === "transform" && this.status.data === false){
 			
 			var popupWrapAnimation = document.querySelector(".popup-wrap.popup-animation");
 			popupWrapAnimation.removeEventListener("webkitTransitionEnd", this.afteropenCallbackRef.bind(this), false);    
