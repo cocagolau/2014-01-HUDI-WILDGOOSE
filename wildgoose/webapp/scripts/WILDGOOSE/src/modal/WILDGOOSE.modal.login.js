@@ -30,8 +30,6 @@
 			// 가입창에 스크립트를 적용한다.
 			// Ajax로 불러온 팝업창에는 스크립트를 넣을 수 없기 때문이다.
 			this.loginPopup.afteropen.add(this._openPopup.bind(this));
-			
-
 		},
 		
 		_openPopup: function() {
@@ -43,14 +41,13 @@
 			emailDom.focus();
 		},
 		
-		_closePopup: function() {
+		_closePopup: function() {			
 			this.loginPopup.afterclose.add(function() {location.reload();});
 			this.loginPopup.close();
 		},
 		
 		_accountInit: function() {
 			var randNum = User.getRandomNumber();
-			debugger;
 			this.loginAccount = new Login({
 				method: "POST",
 				url: "/api/v1/session/",
