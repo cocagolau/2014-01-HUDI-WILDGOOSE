@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-zoom=1, user-scalable=no">
-<link type="text/css" rel="stylesheet" href="/CAGE/src/CAGE.ui.parallax.css" />
+<!-- <link type="text/css" rel="stylesheet" href="/CAGE/src/CAGE.ui.parallax.css" /> -->
+<link type="text/css" rel="stylesheet" href="/scripts/CAGE/src/CAGE.ui.parallax.css" />
 <link type="text/css" rel="stylesheet" href="/stylesheet/base.css" />
 <link type="text/css" rel="stylesheet" href="/stylesheet/basic_layout.css" />
 <link type="text/css" rel="stylesheet" href="/stylesheet/card.css" />
@@ -11,7 +12,7 @@
 <title>Wildgoose</title>
 <div class="wrap">
 	<header class="header">
-		<%@ include file ="/header.jsp" %>
+		<%@ include file ="/WEB-INF/pages/header.jsp" %>
 	</header>
 	<div class="container">
 	<div class="parallax-wrapper">
@@ -62,12 +63,14 @@
 			<c:choose>
 				<%-- 로그인 페이지를 보여줄 때 --%>
 				<c:when test="${ requestScope.data.pageName eq 'login' }">
-					<%@ include file ="/jsp_templates/login.jsp" %>
+					<%-- <%@ include file ="/jsp_templates/login.jsp" %> --%>
+					<%@ include file ="/WEB-INF/templates/jsp/login.jsp" %>
 				</c:when>
 				
 				<%-- 가입 페이지를 보여줄 때 --%>
 				<c:when test="${ requestScope.data.pageName eq 'join' }">
-					<%@ include file ="/jsp_templates/join.jsp" %>
+					<%-- <%@ include file ="/jsp_templates/join.jsp" %> --%>
+					<%@ include file ="/WEB-INF/templates/jsp/join.jsp" %>
 				</c:when>
 				
 				<%-- 나머지 경우 --%>
@@ -98,29 +101,30 @@
 	<footer class="footer"></footer>
 </div>
 
-<script type="text/javascript" src="/CAGE/src/CAGE.ajax.js"></script>
-<script type="text/javascript" src="/CAGE/src/CAGE.util.js"></script>
-<script type="text/javascript" src="/CAGE/src/CAGE.event.emitter.js"></script>
-<script src="/CAGE/src/CAGE.ui.parallax.js"></script>
+<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ajax.js"></script>
+<script type="text/javascript" src="/scripts/CAGE/src/CAGE.util.js"></script>
+<script type="text/javascript" src="/scripts/CAGE/src/CAGE.event.emitter.js"></script>
+<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ui.parallax.js"></script>
 
 
 <c:choose>
 	<c:when test="${ initParam.debuggerMode eq 'on' }">
-		<script type="text/javascript" src="/CAGE/src/CAGE.ajax.js"></script>
-		<script type="text/javascript" src="/CAGE/src/CAGE.util.js"></script>
-		<script type="text/javascript" src="/CAGE/src/CAGE.event.emitter.js"></script>
-		<script type="text/javascript" src="/CAGE/src/CAGE.ui.parallax.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ajax.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.util.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.event.emitter.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ui.parallax.js"></script>
 	
-		<script type="text/javascript" src="/scripts/WILDGOOSE/user/WILDGOOSE.user.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/validation/WILDGOOSE.validator.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.super_type.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.login.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.join.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/user/WILDGOOSE.user.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/validation/WILDGOOSE.validator.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.super_type.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.login.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.join.js"></script>
 		
-		<script type="text/javascript" src="/scripts/APP/APP.page.error.js"></script>
+		<script type="text/javascript" src="/scripts/APP/src/APP.page.error.js"></script>
 	</c:when>
 	<c:otherwise>
-		<script type="text/javascript" src="/CAGE/src/CAGE.min.js"></script>
+		<!-- <script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script> -->
+		<script type="text/javascript" src="/scripts/CAGE/CAGE.min.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/WILDGOOSE.min.js"></script>
 		<script type="text/javascript" src="/scripts/APP/APP.min.js"></script>
 	</c:otherwise>

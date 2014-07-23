@@ -2,7 +2,6 @@ package next.wildgoose.backcontroller;
 
 import java.util.regex.Pattern;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,10 +17,16 @@ import next.wildgoose.utility.Constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component("session")
 public class SessionController implements BackController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SessionController.class.getName());
-
+	
+	@Autowired
+	private SignDAO signDao;
+	
 	@Override
 	public Result execute(HttpServletRequest request) {
 		Result result = null;
@@ -55,8 +60,6 @@ public class SessionController implements BackController {
 	}
 	
 	private AccountResult joinedEmail(HttpServletRequest request, String email) {
-		ServletContext context = request.getServletContext();
-		SignDAO signDao = (SignDAO) context.getAttribute("SignDAO");
 		AccountResult accountResult = new AccountResult();
 		
 		if(isJoinable(signDao, email)){
@@ -95,9 +98,7 @@ public class SessionController implements BackController {
 	}
 	
 	private SimpleResult login(HttpServletRequest request) {
-		ServletContext context = request.getServletContext();
 		HttpSession session = request.getSession();
-		SignDAO signDao = (SignDAO) context.getAttribute("SignDAO");
 		
 		String email = request.getParameter("email");
 		String hashedPassword = request.getParameter("password");

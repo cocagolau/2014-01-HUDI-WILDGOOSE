@@ -5,7 +5,7 @@
 <ul>
 	<c:forEach var="reporter" items="${ requestScope.data.favorites }">
 	<li class="card card-reporter">
-		<%@ include file = "/jsp_templates/reporterCard.jsp" %>
+		<%@ include file = "/WEB-INF/templates/jsp/reporterCard.jsp" %>
 	</li>
 	</c:forEach>
 	<li class="card card-reporter card-last" style="visibility:hidden;">

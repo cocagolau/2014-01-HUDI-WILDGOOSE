@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <link type="text/css" rel="stylesheet" href="/stylesheet/modal.css" />
-<link rel="stylesheet" type="text/css" href="/CAGE/src/CAGE.ui.popup.css">
+<link rel="stylesheet" type="text/css" href="/scripts/CAGE/src/CAGE.ui.popup.css">
 <link type="text/css" rel="stylesheet" href="/stylesheet/header.css" />
 <link type="text/css" rel="stylesheet" href="/stylesheet/header-account-popup.css" />
 <link type="text/css" rel="stylesheet" href="/stylesheet/header-setting-popup.css" />
@@ -126,26 +126,27 @@ li[class*='nav'] a  {
 <script type="text/javascript" src="/scripts/lib/sha256.js"></script>
 <c:choose>
 	<c:when test="${ initParam.debuggerMode eq 'on' }">
-		<script type="text/javascript" src="/CAGE/src/CAGE.ajax.js"></script>
-		<script type="text/javascript" src="/CAGE/src/CAGE.util.js"></script>
-		<script type="text/javascript" src="/CAGE/src/CAGE.event.emitter.js"></script>
-		<script type="text/javascript" src="/CAGE/src/CAGE.ui.popup.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ajax.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.util.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.event.emitter.js"></script>
+		<script type="text/javascript" src="/scripts/CAGE/src/CAGE.ui.popup.js"></script>
 		
-		<script type="text/javascript" src="/scripts/WILDGOOSE/user/WILDGOOSE.user.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/validation/WILDGOOSE.validator.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.super_type.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.login.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.logout.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.join.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.withdraw.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/account/WILDGOOSE.account.change.pw.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/modal/WILDGOOSE.modal.join.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/modal/WILDGOOSE.modal.login.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/modal/WILDGOOSE.modal.setting.js"></script>
-		<script type="text/javascript" src="/scripts/APP/APP.page.header.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/user/WILDGOOSE.user.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/validation/WILDGOOSE.validator.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.super_type.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.login.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.logout.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.join.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.withdraw.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/account/WILDGOOSE.account.change.pw.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/modal/WILDGOOSE.modal.join.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/modal/WILDGOOSE.modal.login.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/modal/WILDGOOSE.modal.setting.js"></script>
+		<script type="text/javascript" src="/scripts/APP/src/APP.page.header.js"></script>
 	</c:when>
 	<c:otherwise>
-		<script type="text/javascript" src="/CAGE/src/CAGE.min.js"></script>
+		<!-- <script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script> -->
+		<script type="text/javascript" src="/scripts/CAGE/CAGE.min.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/WILDGOOSE.min.js"></script>
 		<script type="text/javascript" src="/scripts/APP/APP.min.js"></script>
 	</c:otherwise>

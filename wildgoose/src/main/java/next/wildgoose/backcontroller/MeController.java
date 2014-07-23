@@ -2,7 +2,6 @@ package next.wildgoose.backcontroller;
 
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import next.wildgoose.dao.ArticleDAO;
@@ -18,9 +17,19 @@ import next.wildgoose.utility.Constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component("me")
 public class MeController extends AuthController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MeController.class.getName());
+	
+	@Autowired
+	private ArticleDAO articleDao;
+	@Autowired
+	private FavoriteDAO favoriteDao;
+	@Autowired
+	private ReporterDAO reporterDao;
 	
 	public Result execute(HttpServletRequest request) {
 		Result result = null;
@@ -50,11 +59,8 @@ public class MeController extends AuthController {
 	}
 	
 	private Result getArticlesForTimeline(HttpServletRequest request, String userId, int start, int howMany) {
-		ServletContext context = request.getServletContext();
-
 		MeResult meResult = new MeResult();
 		
-		ArticleDAO articleDao =  (ArticleDAO) context.getAttribute("ArticleDAO");
 		List<Article> articles = articleDao.findArticlesByFavorite(userId, start, howMany);
 		
 		meResult.setStatus(200);
@@ -67,19 +73,15 @@ public class MeController extends AuthController {
 	}
 
 	private Result getMe(HttpServletRequest request, String userId, int start, int howMany) {
-		ServletContext context = request.getServletContext();
 
 		MeResult meResult = new MeResult();
 		meResult.setPageName("me");
 		
-		ArticleDAO articleDao =  (ArticleDAO) context.getAttribute("ArticleDAO");
 		List<Article> articles = articleDao.findArticlesByFavorite(userId, start, howMany);
 		int totalNum = articleDao.findNumberOfArticlesByFavorite(userId);
 		
-		FavoriteDAO favoriteDao =  (FavoriteDAO) context.getAttribute("FavoriteDAO");
 		List<Reporter> reporters = favoriteDao.findFavoriteReporters(userId);
 		
-		ReporterDAO reporterDao = (ReporterDAO) context.getAttribute("ReporterDAO");
 		List<Reporter> recommands = reporterDao.getRandomReporters(userId, 12);
 		
 		meResult.setStatus(200);

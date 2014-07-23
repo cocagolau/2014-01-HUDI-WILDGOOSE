@@ -6,11 +6,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import next.wildgoose.dto.NumberOfArticles;
 import next.wildgoose.framework.dao.template.JdbcTemplate;
 import next.wildgoose.framework.dao.template.PreparedStatementSetter;
 import next.wildgoose.framework.dao.template.RowMapper;
 
+@Component
 public class NumberOfArticlesDAO {
 	
 	public List<NumberOfArticles> findNumberOfArticlesByDay(int reporterId) {

@@ -15,7 +15,7 @@
 
 <div class="wrap">
 	<header class="header">
-		<%@ include file ="/header.jsp" %>
+		<%@ include file ="/WEB-INF/pages/header.jsp" %>
 	</header>
 	<div class="container">
 		<div class="logo">
@@ -23,16 +23,29 @@
 		</div>
 		<div class="search search-column">
 			<form class="search_form" action="./search" method="get">
-			<ul class="search-column-box">
-				<li class="search-query-entry">
-					<input type="search" id="query-entry" autocomplete="off" name="q" placeholder="기자 검색" value="${ requestScope.data.searchQuery }" />
-				</li>
-				<li class="search-button">
-					<input type="submit" id="search-action" value ="검색"/>
-				</li>
-			</ul>
-			<%-- 자동완성 --%>
-			<ul class="auto-completion-list"></ul>
+				<!-- <input id="search-box" name="q" placeholder="기자 검색" type="search" autocomplete="off" data-style="" data-feature="auto-complement" data-disable="white-space;none;" />
+				<button data-relation="#search-box">검색</button> -->
+				
+				<!-- <div class="outer-wrapper">
+					<div class="inner-wrapper">
+						<input id="search-box" name="q" placeholder="기자 검색" type="search" autocomplete="off" data-style="search-box" data-feature="auto-complement" data-disable="white-space;none;" />
+					</div>
+					<div class="inner-wrapper">
+						<button data-relation="#search-box">검색</button>
+					</div>
+				</div> -->
+				
+				<ul class="search-column-box">
+					<li class="search-query-entry">
+						<input type="search" id="query-entry" autocomplete="off" name="q" placeholder="기자 검색" value="${ requestScope.data.searchQuery }" />
+					</li>
+					<li class="search-button">
+						<input type="submit" id="search-action" value ="검색"/>
+					</li>
+				</ul>
+				<%-- 자동완성 --%>
+				<ul class="auto-completion-list"></ul>
+			
 			</form>
 		</div>
 		<div class="search-result">
@@ -51,7 +64,7 @@
 					</c:if>
 					<%-- searchResult 표시부 --%>
 					<c:forEach var="reporter" items="${ requestScope.data.reporters }" ><li class="card card-reporter">
-						<%@ include file = "jsp_templates/reporterCard.jsp" %>
+						<%@ include file = "/WEB-INF/templates/jsp/reporterCard.jsp" %>
 					</li></c:forEach>
 				</c:when>
 
@@ -77,18 +90,19 @@
 </div>
 <c:choose>
 	<c:when test="${ initParam.debuggerMode eq 'on' }">
-		<script type="text/javascript" src="/scripts/WILDGOOSE/user/WILDGOOSE.user.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/ui/WILDGOOSE.ui.favorite.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/more/WILDGOOSE.more.super_type.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/more/WILDGOOSE.more.search.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/search/WILDGOOSE.search.auto_complement.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/search/WILDGOOSE.search.submit.js"></script>
-		<script type="text/javascript" src="/scripts/WILDGOOSE/search/WILDGOOSE.search.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/user/WILDGOOSE.user.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/ui/WILDGOOSE.ui.favorite.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/more/WILDGOOSE.more.super_type.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/more/WILDGOOSE.more.search.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/search/WILDGOOSE.search.auto_complement.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/search/WILDGOOSE.search.submit.js"></script>
+		<script type="text/javascript" src="/scripts/WILDGOOSE/src/search/WILDGOOSE.search.js"></script>
 				
-		<script type="text/javascript" src="/scripts/APP/APP.page.search.js"></script>
+		<script type="text/javascript" src="/scripts/APP/src/APP.page.search.js"></script>
 	</c:when>
 	<c:otherwise>
-		<script type="text/javascript" src="/CAGE/src/CAGE.min.js"></script>
+		<!-- <script type="text/javascript" src="/scripts/CAGE/src/CAGE.min.js"></script> -->
+		<script type="text/javascript" src="/scripts/CAGE/CAGE.min.js"></script>
 		<script type="text/javascript" src="/scripts/WILDGOOSE/WILDGOOSE.min.js"></script>
 		<script type="text/javascript" src="/scripts/APP/APP.min.js"></script>
 	</c:otherwise>

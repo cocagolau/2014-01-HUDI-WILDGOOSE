@@ -1,6 +1,5 @@
 package next.wildgoose.backcontroller;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,10 +9,15 @@ import next.wildgoose.framework.BackController;
 import next.wildgoose.framework.Result;
 import next.wildgoose.utility.Constants;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public abstract class AuthController implements BackController {
 
 	@Override
 	public abstract Result execute(HttpServletRequest request);
+	
+	@Autowired
+	protected SignDAO signDao;
 	
 	public SimpleResult authenticate(HttpServletRequest request, String userId) {
 		SimpleResult sResult = null;
@@ -38,8 +42,6 @@ public abstract class AuthController implements BackController {
 		return sResult;
 	}
 	private boolean isValidUserId(HttpServletRequest request, String userId) {
-		ServletContext context = request.getServletContext();
-		SignDAO signDao = (SignDAO) context.getAttribute("SignDAO");
 		if (signDao.findEmail(userId)) {
 			return true;
 		}

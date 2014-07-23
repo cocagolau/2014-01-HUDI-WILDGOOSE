@@ -18,6 +18,8 @@ import next.wildgoose.utility.Constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -60,13 +62,23 @@ public class FrontController extends HttpServlet {
 	
 	// 요청(request path)에 해당하는 BackController 구현체를 받아오기
 	private BackController getBackController(HttpServletRequest request) {
-		ServletContext context = request.getServletContext();
-		Map<String, BackController> controllerMap = (Map<String, BackController>) context.getAttribute("controllerMap");
+		ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
+		
+//		Lecture lecture = context.getBean("standardGradeLecture", Lecture.class);
+//		
+//		ServletContext context = request.getServletContext();
+//		Map<String, BackController> controllerMap = (Map<String, BackController>) context.getAttribute("controllerMap");
 		Uri uri = new Uri(request);
-		BackController result = null;
-		result = controllerMap.get(uri.getPrimeResource());
+		String primeResource = uri.getPrimeResource();
+		if ("".equals(primeResource)) {
+			primeResource = "search";
+		}
+		
+		BackController result = context.getBean(primeResource, BackController.class);
+//		result = controllerMap.get(uri.getPrimeResource());
+//		result = context.getBean(primeResource, BackController.class);
 		if (result == null) {
-			result = controllerMap.get("error");
+			result = context.getBean("error", BackController.class);
 		}
 		return result;
 	}
