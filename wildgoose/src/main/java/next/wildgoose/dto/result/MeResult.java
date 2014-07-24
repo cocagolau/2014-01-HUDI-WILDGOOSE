@@ -4,7 +4,6 @@ import java.util.List;
 
 import next.wildgoose.dto.Article;
 import next.wildgoose.dto.Reporter;
-import next.wildgoose.framework.Result;
 
 public class MeResult extends Result{
 	

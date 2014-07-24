@@ -1,4 +1,4 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import next.wildgoose.dao.ReporterDAO;
 import next.wildgoose.dto.Reporter;
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.dto.result.SearchResult;
-import next.wildgoose.framework.BackController;
-import next.wildgoose.framework.Result;
+import next.wildgoose.framework.Controller;
 import next.wildgoose.framework.utility.Utility;
 import next.wildgoose.utility.Constants;
 
@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("search")
-public class SearchController implements BackController {
+public class SearchController implements Controller {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(SearchController.class.getName());
 	

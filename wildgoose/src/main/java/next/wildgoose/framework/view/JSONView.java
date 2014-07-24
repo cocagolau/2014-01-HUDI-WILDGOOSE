@@ -1,4 +1,4 @@
-package next.wildgoose.framework;
+package next.wildgoose.framework.view;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -6,12 +6,15 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.framework.utility.Utility;
 import next.wildgoose.utility.Constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component("json")
 public class JSONView implements View {
 	private static final Logger LOGGER = LoggerFactory.getLogger(JSONView.class.getName());
 
