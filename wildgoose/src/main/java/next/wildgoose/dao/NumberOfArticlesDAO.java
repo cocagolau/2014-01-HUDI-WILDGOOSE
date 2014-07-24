@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import next.wildgoose.dto.NumberOfArticles;
@@ -15,6 +16,9 @@ import next.wildgoose.framework.dao.template.RowMapper;
 
 @Component
 public class NumberOfArticlesDAO {
+	
+	@Autowired
+	private JdbcTemplate t;
 	
 	public List<NumberOfArticles> findNumberOfArticlesByDay(int reporterId) {
 		return findNumberOfArticlesByCondition("day", reporterId);
@@ -27,7 +31,6 @@ public class NumberOfArticlesDAO {
 	private List<NumberOfArticles> findNumberOfArticlesByCondition (String condition, final int reporterId) {
 		StringBuilder query = null;
 		RowMapper rm = null;
-		JdbcTemplate t = new JdbcTemplate();
 		
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
@@ -53,6 +56,7 @@ public class NumberOfArticlesDAO {
 			query.append("WHERE URL in (Select article_URL as url from article_author where author_id = ?) ");
 			query.append("and DATEDIFF(now(), article.datetime) < 7 ");
 			query.append("group by date_format(datetime, '%m/%d');");
+			
 		} else if ("section".equals(condition)) {
 			query.append("SELECT distinct sec.name, count(section_id) FROM article ");
 			query.append("JOIN (SELECT author_id, article_URL FROM article_author as aa WHERE aa.author_id = ?) as result ");

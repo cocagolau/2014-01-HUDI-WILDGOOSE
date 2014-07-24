@@ -13,7 +13,7 @@ public class DatabaseListener implements ServletContextListener {
 		String dbUrl = sc.getInitParameter("dbUrl");
 		String userName = sc.getInitParameter("userName");
 		String userPassword = sc.getInitParameter("userPassword");
-		DataSource.init(dbDriver, userName, userPassword, dbUrl);
+//		DataSource.init(dbDriver, userName, userPassword, dbUrl);
 	}
 	
 	public void contextDestroyed(ServletContextEvent event) {

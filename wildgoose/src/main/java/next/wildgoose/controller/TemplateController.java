@@ -34,6 +34,7 @@ public class TemplateController implements Controller {
 	private TemplateResult readTemplate(String path) {
 		TemplateResult result = new TemplateResult();
 		StringBuilder htmlDocumentSB = ResourceLoader.load(path);
+		
 		if (htmlDocumentSB != null) {
 			result.setStatus(200);
 			result.setMessage("OK");

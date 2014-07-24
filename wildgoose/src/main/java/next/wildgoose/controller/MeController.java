@@ -26,8 +26,10 @@ public class MeController extends AuthController {
 	
 	@Autowired
 	private ArticleDAO articleDao;
+	
 	@Autowired
 	private FavoriteDAO favoriteDao;
+	
 	@Autowired
 	private ReporterDAO reporterDao;
 	
@@ -52,8 +54,6 @@ public class MeController extends AuthController {
 		else if (uri.check(2, "timeline")) {
 			result = getArticlesForTimeline(request, userId, startItem, howMany);
 		}
-		
-		
 		
 		return result;
 	}

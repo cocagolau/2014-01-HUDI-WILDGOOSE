@@ -29,8 +29,7 @@ import org.springframework.stereotype.Component;
 @Component("accounts")
 public class AccountController implements Controller {
 
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(AccountController.class.getName());
+	private static final Logger LOGGER = LoggerFactory.getLogger(AccountController.class.getName());
 	
 	@Autowired
 	private SignDAO signDao;
@@ -78,7 +77,7 @@ public class AccountController implements Controller {
 
 		// 비밀번호 확인
 		if (SHA256.testSHA256(accountPw + randNum).equals(oldPassword)) {
-			boolean changed = SignDAO.changePassword(email, newPassword);
+			boolean changed = signDao.changePassword(email, newPassword);
 			result = new SimpleResult(changed);
 		} else {
 			result.setMessage(Constants.MSG_WRONG_PW);
