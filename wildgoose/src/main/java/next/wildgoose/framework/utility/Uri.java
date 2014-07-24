@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import next.wildgoose.utility.Constants;
+
 public class Uri {
 	private List<String> resources;
 	private boolean api = false;
@@ -22,7 +24,13 @@ public class Uri {
 	}
 	
 	public String getPrimeResource() {
-		return get(0);
+		String resource = get(0);
+		
+		if ("".equals(resource)) {
+			return Constants.DEFAULT_RESOURCE;
+		}
+		
+		return resource;
 	}
 	
 	public boolean isAPI() {
