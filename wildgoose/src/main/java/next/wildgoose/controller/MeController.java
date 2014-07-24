@@ -1,4 +1,4 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import next.wildgoose.dao.ReporterDAO;
 import next.wildgoose.dto.Article;
 import next.wildgoose.dto.Reporter;
 import next.wildgoose.dto.result.MeResult;
-import next.wildgoose.framework.Result;
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.framework.utility.Uri;
 import next.wildgoose.framework.utility.Utility;
 import next.wildgoose.utility.Constants;
@@ -26,8 +26,10 @@ public class MeController extends AuthController {
 	
 	@Autowired
 	private ArticleDAO articleDao;
+	
 	@Autowired
 	private FavoriteDAO favoriteDao;
+	
 	@Autowired
 	private ReporterDAO reporterDao;
 	
@@ -52,8 +54,6 @@ public class MeController extends AuthController {
 		else if (uri.check(2, "timeline")) {
 			result = getArticlesForTimeline(request, userId, startItem, howMany);
 		}
-		
-		
 		
 		return result;
 	}

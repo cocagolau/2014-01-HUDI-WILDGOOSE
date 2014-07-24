@@ -1,4 +1,4 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import next.wildgoose.dao.ReporterDAO;
 import next.wildgoose.dto.Reporter;
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.dto.result.SearchResult;
-import next.wildgoose.framework.BackController;
-import next.wildgoose.framework.Result;
+import next.wildgoose.framework.Controller;
 import next.wildgoose.framework.utility.Utility;
 import next.wildgoose.utility.Constants;
 
@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("search")
-public class SearchController implements BackController {
+public class SearchController implements Controller {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(SearchController.class.getName());
 	
@@ -44,21 +44,23 @@ public class SearchController implements BackController {
 			// 자동완성 반환
 			LOGGER.debug("searchQuery: " + searchQuery + ", autocompete: " + request.getParameter("autocomplete"));
 			searchResult = getAutoCompleteResult(request, searchQuery, howMany);
+			
 		} else if (startItem != -1) {
 			// 결과를 특정 부분부터 반환
 			searchResult = getSearchResult(request, searchQuery, startItem, howMany);
+			
 		} else {
 			// 결과를 처음부터 반환
 			searchResult = getSearchResult(request, searchQuery, howMany);
 		}
 		searchResult.setPageName("home");
+		
 		return searchResult;
 	}
 	
 	
 	private SearchResult getAutoCompleteResult(HttpServletRequest request, String searchQuery, int howMany) {
 		SearchResult searchResult = new SearchResult();
-		
 		List<Reporter> reporters = reporterDao.getSimilarNames(searchQuery, howMany);
 		
 		searchResult.setStatus(200);
@@ -89,6 +91,7 @@ public class SearchController implements BackController {
 	}
 
 	private SearchResult getSearchResult(HttpServletRequest request, String searchQuery, int howMany) {
+		
 		return getSearchResult(request, searchQuery, 0, howMany);
 	}
 	
@@ -130,6 +133,7 @@ public class SearchController implements BackController {
 			searchResult.setMessage(Constants.MSG_WRONG_QUERY);
 			return searchResult;
 		}
+		
 		return null;
 	}
 }

@@ -3,7 +3,6 @@ package next.wildgoose.dto.result;
 import java.util.List;
 
 import next.wildgoose.dto.Reporter;
-import next.wildgoose.framework.Result;
 
 public class FavoriteResult extends Result {
 

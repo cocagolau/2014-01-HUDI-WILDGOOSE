@@ -1,6 +1,5 @@
 package next.wildgoose.dto.result;
 
-import next.wildgoose.framework.Result;
 
 public class SimpleResult extends Result {
 

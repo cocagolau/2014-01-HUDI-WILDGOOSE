@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.framework.utility.Uri;
+import next.wildgoose.framework.view.View;
 import next.wildgoose.utility.Constants;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -35,8 +38,8 @@ public class FrontController extends HttpServlet {
 		}
 		
 		LOGGER.debug(request.getRequestURI());
-		BackController backController = getBackController(request);
-		Result resultData = backController.execute(request);
+		Controller controller = getController(request);
+		Result resultData = controller.execute(request);
 
 		View view = createView(request, resultData);
 		view.show(request, response, resultData);
@@ -61,37 +64,37 @@ public class FrontController extends HttpServlet {
 	}
 	
 	// 요청(request path)에 해당하는 BackController 구현체를 받아오기
-	private BackController getBackController(HttpServletRequest request) {
+	private Controller getController(HttpServletRequest request) {
 		ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
+		Controller result = null;
 		
-//		Lecture lecture = context.getBean("standardGradeLecture", Lecture.class);
-//		
-//		ServletContext context = request.getServletContext();
-//		Map<String, BackController> controllerMap = (Map<String, BackController>) context.getAttribute("controllerMap");
 		Uri uri = new Uri(request);
 		String primeResource = uri.getPrimeResource();
+		
 		if ("".equals(primeResource)) {
 			primeResource = "search";
 		}
+		result = context.getBean(primeResource, Controller.class);
 		
-		BackController result = context.getBean(primeResource, BackController.class);
-//		result = controllerMap.get(uri.getPrimeResource());
-//		result = context.getBean(primeResource, BackController.class);
 		if (result == null) {
-			result = context.getBean("error", BackController.class);
+			result = context.getBean("error", Controller.class);
 		}
 		return result;
 	}
 	
 	private View createView(HttpServletRequest request, Result resultData) {
+		ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
 		Uri uri = new Uri(request);
+		String viewType = "jsp";
+		
 		// 요청종류에 따라 뷰 구현체의 인스턴스를 마련한다.
 		if (uri.isAPI()) {
-			return new JSONView();
+			viewType = "json";
 		}
 		String jspFileName = pickJsp(request, uri, resultData);
 		request.setAttribute("jspName", jspFileName);
-		return new JSPView();
+		
+		return context.getBean(viewType, View.class);
 	}
 	
 	private String pickJsp(HttpServletRequest request, Uri uri, Result resultData) {
@@ -102,18 +105,14 @@ public class FrontController extends HttpServlet {
 		//// JSPView의 경우 이 과정에서 내부적으로 대응하는 .jsp 파일을 멤버로 확보하도록 한다.
 		if (resultData == null) {
 			result = jspMap.get(null);
+			
 		} else if (resultData.getStatus() == 200) {			
 			Uri keyUri = getKey(jspMap.keySet(), uri);
 			result = jspMap.get(keyUri);
-		}
-//		else if (resultData.getStatus() == 401) {
-//			// Not Authenticated
-//			result = "error.jsp";
-//		} else if (resultData.getStatus() == 404) {
-//			result = "404.jsp";
-//		}
-		else {
+			
+		} else {
 			result = "error.jsp";
+			
 		}
 		
 		return result;

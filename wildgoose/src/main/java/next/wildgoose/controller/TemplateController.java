@@ -1,11 +1,11 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.dto.result.TemplateResult;
-import next.wildgoose.framework.BackController;
-import next.wildgoose.framework.Result;
+import next.wildgoose.framework.Controller;
 import next.wildgoose.framework.support.ResourceLoader;
 import next.wildgoose.framework.utility.Uri;
 import next.wildgoose.utility.Constants;
@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component("templates")
-public class TemplateController implements BackController {
+public class TemplateController implements Controller {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TemplateController.class.getName());
 	
 	@Override
@@ -34,6 +34,7 @@ public class TemplateController implements BackController {
 	private TemplateResult readTemplate(String path) {
 		TemplateResult result = new TemplateResult();
 		StringBuilder htmlDocumentSB = ResourceLoader.load(path);
+		
 		if (htmlDocumentSB != null) {
 			result.setStatus(200);
 			result.setMessage("OK");

@@ -1,4 +1,4 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import next.wildgoose.dao.FavoriteDAO;
 import next.wildgoose.dto.Reporter;
 import next.wildgoose.dto.result.FavoriteResult;
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.dto.result.SimpleResult;
-import next.wildgoose.framework.Result;
 import next.wildgoose.framework.utility.Uri;
 
 import org.slf4j.Logger;

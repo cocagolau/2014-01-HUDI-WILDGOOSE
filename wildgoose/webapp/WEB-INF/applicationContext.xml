@@ -7,6 +7,21 @@
         http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     
-    <context:component-scan base-package="next.wildgoose.backcontroller" />
+    
+    <context:component-scan base-package="next.wildgoose.controller" />
+    <context:component-scan base-package="next.wildgoose.framework.view" />
+    <context:component-scan base-package="next.wildgoose.framework.dao.template" />
     <context:component-scan base-package="next.wildgoose.dao" />
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://10.73.45.134:3306/wildgoose_dev" />
+		<property name="username" value="viewer" />
+		<property name="password" value="" />
+		<property name="minIdle" value="3" />
+		<property name="maxIdle" value="6" />
+		<property name="maxOpenPreparedStatements" value="180" />
+
+	</bean>
 </beans>

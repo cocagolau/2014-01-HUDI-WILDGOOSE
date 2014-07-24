@@ -17,12 +17,12 @@
 	<div class="container">
 	<div class="parallax-wrapper">
 		<div class="parallax-bg">
-			<img src="/image/error404-bg.png" data-rangex="5" data-rangey="5" class="bg parallax-item"/>
+			<img src="/static/image/error404-bg.png" data-rangex="5" data-rangey="5" class="bg parallax-item"/>
 		</div>
 		<div class="parallax-stage">
-			<img src="/image/error404-logo.png"style="opacity:.4" data-rangex="7" data-rangey="4" data-reverse class="logo parallax-item"/>
-			<img src="/image/error404-baked.png" data-rangex="12" data-rangey="3" class="primary parallax-item"/>
-			<img src="/image/error404-sweatDrop.png"  data-rangex="14" data-rangey="8" class="sweat-drop parallax-item"/>
+			<img src="/static/image/error404-logo.png"style="opacity:.4" data-rangex="7" data-rangey="4" data-reverse class="logo parallax-item"/>
+			<img src="/static/image/error404-baked.png" data-rangex="12" data-rangey="3" class="primary parallax-item"/>
+			<img src="/static/image/error404-sweatDrop.png"  data-rangex="14" data-rangey="8" class="sweat-drop parallax-item"/>
 			
 			<div data-rangex="40" data-rangey="18" class="msg parallax-item">
 				<c:choose>
@@ -53,7 +53,7 @@
 				</c:choose>
 			</div>
 			
-			<!-- <img src="/image/error404-404msg.png"  data-rangex="40" data-rangey="18" class="msg parallax-item"/> -->
+			<!-- <img src="/static/image/error404-404msg.png"  data-rangex="40" data-rangey="18" class="msg parallax-item"/> -->
 		</div>
 	</div>
 	

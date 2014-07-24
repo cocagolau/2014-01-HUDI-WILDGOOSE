@@ -19,7 +19,7 @@
 	</header>
 	<div class="container">
 		<div class="logo">
-			<a href="/"><img src="image/logo.png" alt="wildgoose logo" class="logo-image"/></a>
+			<a href="/"><img src="/static/image/logo.png" alt="wildgoose logo" class="logo-image"/></a>
 		</div>
 		<div class="search search-column">
 			<form class="search_form" action="./search" method="get">

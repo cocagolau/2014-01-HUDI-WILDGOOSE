@@ -1,4 +1,4 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import java.util.regex.Pattern;
 
@@ -7,9 +7,9 @@ import javax.servlet.http.HttpSession;
 
 import next.wildgoose.dao.SignDAO;
 import next.wildgoose.dto.result.AccountResult;
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.dto.result.SimpleResult;
-import next.wildgoose.framework.BackController;
-import next.wildgoose.framework.Result;
+import next.wildgoose.framework.Controller;
 import next.wildgoose.framework.security.RandomNumber;
 import next.wildgoose.framework.security.SHA256;
 import next.wildgoose.framework.utility.Uri;
@@ -21,7 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("session")
-public class SessionController implements BackController {
+public class SessionController implements Controller {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SessionController.class.getName());
 	
 	@Autowired
@@ -42,6 +42,7 @@ public class SessionController implements BackController {
 				String email = request.getParameter("email");
 				result = joinedEmail(request, email);
 			}
+			
 		} else if (uri.check(1, "rand")) {
 			result = getRanomNumber(request);
 		}
@@ -65,6 +66,7 @@ public class SessionController implements BackController {
 		if(isJoinable(signDao, email)){
 			accountResult.setStatus(500);
 			accountResult.setMessage(Constants.MSG_EXIST_ID);
+			
 		} else {
 			accountResult.setStatus(200);
 			accountResult.setMessage("OK");
@@ -75,6 +77,7 @@ public class SessionController implements BackController {
 	}
 	
 	private boolean isJoinable(SignDAO signDao, String email) {
+		
 		if (isValidEmail(email)) {
 			return !signDao.findEmail(email);
 		}

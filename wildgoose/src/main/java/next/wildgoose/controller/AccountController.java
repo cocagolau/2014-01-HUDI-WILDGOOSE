@@ -1,4 +1,4 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,9 +13,9 @@ import javax.servlet.http.HttpSession;
 
 import next.wildgoose.dao.SignDAO;
 import next.wildgoose.dto.result.AccountResult;
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.dto.result.SimpleResult;
-import next.wildgoose.framework.BackController;
-import next.wildgoose.framework.Result;
+import next.wildgoose.framework.Controller;
 import next.wildgoose.framework.security.SHA256;
 import next.wildgoose.framework.utility.Uri;
 import next.wildgoose.framework.utility.Utility;
@@ -27,10 +27,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("accounts")
-public class AccountController implements BackController {
+public class AccountController implements Controller {
 
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(AccountController.class.getName());
+	private static final Logger LOGGER = LoggerFactory.getLogger(AccountController.class.getName());
 	
 	@Autowired
 	private SignDAO signDao;
@@ -78,7 +77,7 @@ public class AccountController implements BackController {
 
 		// 비밀번호 확인
 		if (SHA256.testSHA256(accountPw + randNum).equals(oldPassword)) {
-			boolean changed = SignDAO.changePassword(email, newPassword);
+			boolean changed = signDao.changePassword(email, newPassword);
 			result = new SimpleResult(changed);
 		} else {
 			result.setMessage(Constants.MSG_WRONG_PW);

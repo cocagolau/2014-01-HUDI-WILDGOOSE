@@ -5,30 +5,38 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import next.wildgoose.database.DataSource;
 
+@Component
 public class JdbcTemplate {
 	private static final Logger LOGGER = LoggerFactory.getLogger(JdbcTemplate.class.getName());
-	Connection conn;
 	
-	public JdbcTemplate() {
-		this.conn = DataSource.getInstance().getConnection();
-	}
+	@Autowired
+	private DataSource datasource;
+
+//	public JdbcTemplate() {
+//		GenericXmlApplicationContext context = new GenericXmlApplicationContext("classpath:applicationContext.xml");
+//	}
 	
 	public Object execute (String query, PreparedStatementSetter pss) {
 		return execute(query, pss, null);
 	}
 	
 	public Object execute (String query, PreparedStatementSetter pss, RowMapper rm) {
+		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		Object result = null;
 		
 		try {
-			psmt = this.conn.prepareStatement(query);
+			conn = datasource.getConnection();
+			psmt = conn.prepareStatement(query);
 			pss.setValues(psmt);
 			
 			if (rm == null) {
@@ -46,7 +54,7 @@ public class JdbcTemplate {
 		} finally {
 			SqlUtil.closeResultSet(rs);
 			SqlUtil.closePrepStatement(psmt);
-			SqlUtil.closeConnection(this.conn);
+			SqlUtil.closeConnection(conn);
 		}
 				
 		return result;

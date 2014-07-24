@@ -11,11 +11,16 @@ import next.wildgoose.framework.dao.template.JdbcTemplate;
 import next.wildgoose.framework.dao.template.PreparedStatementSetter;
 import next.wildgoose.framework.dao.template.RowMapper;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ArticleDAO {
-	static RowMapper articlesRm = new RowMapper() {
+	
+	@Autowired
+	private JdbcTemplate t;
+	
+	final RowMapper ARTICLES_RM = new RowMapper() {
 
 		@Override
 		public Object mapRow(ResultSet rs) throws SQLException {
@@ -37,7 +42,6 @@ public class ArticleDAO {
 	};
 	
 	public List<Article> findArticlesById(final int reporterId) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -77,7 +81,6 @@ public class ArticleDAO {
 	}
 	
 	public List<Article> findArticlesByFavorite(final String email) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -86,7 +89,7 @@ public class ArticleDAO {
 			}
 			
 		};
-		
+	
 		StringBuilder query = new StringBuilder();
 		query.append("SELECT author.name, author.id, favorite.* from author JOIN ");
 		query.append("(SELECT * FROM article JOIN article_author ON article_author.article_URL = article.URL ");
@@ -94,11 +97,10 @@ public class ArticleDAO {
 		query.append("(SELECT author_id FROM favorite WHERE user_email = ?) ");
 		query.append("ORDER BY article.datetime desc limit 24) AS favorite ON author.id = favorite.author_id;");
 		
-		return (List<Article>) t.execute(query.toString(), pss, articlesRm);
+		return (List<Article>) t.execute(query.toString(), pss, ARTICLES_RM);
 	}
 
 	public List<Article> findArticlesByFavorite(final String email, final int start, final int howMany) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -117,11 +119,10 @@ public class ArticleDAO {
 		query.append("(SELECT author_id FROM favorite WHERE user_email = ?) ");
 		query.append("ORDER BY article.datetime desc limit ?,?) AS favorite ON author.id = favorite.author_id;");
 		
-		return (List<Article>) t.execute(query.toString(), pss, articlesRm);
+		return (List<Article>) t.execute(query.toString(), pss, ARTICLES_RM);
 	}
 	
 	public int findNumberOfArticlesByFavorite(final String email) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
