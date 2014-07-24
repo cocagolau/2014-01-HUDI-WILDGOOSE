@@ -143,12 +143,12 @@ body{
     /* -webkit-transform : translateZ(0);
     transform : translateZ(0); */
     
-    background-image: url('/image/graystar.png');
+    background-image: url('/static/image/graystar.png');
 	background-repeat: no-repeat;
 }
 
 .card-section-identity .star:hover {
-	background-image: url('/image/lemonstar.png');
+	background-image: url('/static/image/lemonstar.png');
 	cursor: pointer;
 }
 .card-section-identity .star.pumping {
@@ -158,7 +158,7 @@ body{
 	transform: scale(1.2,1.2);
 }
 .card-section-identity .star.on {
-	background-image: url('/image/yellowstar.png');
+	background-image: url('/static/image/yellowstar.png');
 }
 
 .card-section-identity > .press-tag {	
