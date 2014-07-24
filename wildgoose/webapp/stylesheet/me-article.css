@@ -1,12 +1,12 @@
 @CHARSET "UTF-8";
-@import url(http://fonts.googleapis.com/earlyaccess/nanummyeonjo.css);
+@import url(http://static/fonts.googleapis.com/earlyaccess/nanummyeonjo.css);
 /* @font-face{
 	font-family:"NM";
-	src:url('/fonts/NanumMyeongjo.eot');
-	src:url('/fonts/NanumMyeongjo.eot?#iefix') format('embedded-opentype'),
-	url('/fonts/NanumMyeongjo.woff') format('woff'),
-	url('/fonts/NanumMyeongjo.ttf') format('truetype');
-	src:local('※'), url('/fonts/NanumMyeongjo.woff') format('woff');
+	src:url('/static/fonts/NanumMyeongjo.eot');
+	src:url('/static/fonts/NanumMyeongjo.eot?#iefix') format('embedded-opentype'),
+	url('/static/fonts/NanumMyeongjo.woff') format('woff'),
+	url('/static/fonts/NanumMyeongjo.ttf') format('truetype');
+	src:local('※'), url('/static/fonts/NanumMyeongjo.woff') format('woff');
 
 	font-style: normal;
 	font-weight: normal;
@@ -21,7 +21,7 @@
 } */
 /* 태블릿 PC와 데스크톱용 글꼴 - 시스템 글꼴 다음으로 웹 폰트를 참조하도록 선언 */
 /* @media all and (min-width: 768px) {
-    @font-face{font-family:nm; src:url(/fonts/NanumMyeongjo.eot); src:local('※'), url(/fonts/NanumMyeongjo.woff) format('woff');}
+    @font-face{font-family:nm; src:url(/static/fonts/NanumMyeongjo.eot); src:local('※'), url(/static/fonts/NanumMyeongjo.woff) format('woff');}
     .nm{font-family:NanumMyeongjo, nm,Tahoma,Sans-serif}
 } */
 
