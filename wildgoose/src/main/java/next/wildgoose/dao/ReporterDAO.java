@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import next.wildgoose.dto.Reporter;
@@ -16,8 +17,10 @@ import next.wildgoose.framework.dao.template.RowMapper;
 @Component
 public class ReporterDAO {
 	
+	@Autowired
+	private JdbcTemplate t;
+	
 	public List<Reporter> getRandomReporters(final String userId, final int howmany) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -65,7 +68,6 @@ public class ReporterDAO {
 	}
 	
 	public Reporter findReporterById (final int reporterId) {		
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -100,7 +102,6 @@ public class ReporterDAO {
 	}
 	
 	public int findNumberOfReportersByType(String type, final String searchQuery) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -133,7 +134,6 @@ public class ReporterDAO {
 	}
 	
 	public List<Reporter> findReportersByType(String type, final String searchQuery, final int start, final int num) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -177,7 +177,7 @@ public class ReporterDAO {
 	}
 	
 	public List<Reporter> getSimilarNames(final String name, final int count) {
-		JdbcTemplate t = new JdbcTemplate();
+//		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override

@@ -27,10 +27,13 @@ public class ReporterController implements Controller {
 	
 	@Autowired
 	private ReporterDAO reporterDao;
+	
 	@Autowired
 	private ArticleDAO articleDao;
+	
 	@Autowired
 	private NumberOfArticlesDAO numberOfArticlesDao;
+	
 	@Autowired
 	private DummyData dummy;
 	

@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import next.wildgoose.framework.dao.template.JdbcTemplate;
@@ -12,8 +13,11 @@ import next.wildgoose.framework.dao.template.RowMapper;
 
 @Component
 public class SignDAO {
+	
+	@Autowired
+	private JdbcTemplate t;
+	
 	public boolean findEmail (final String email) {	
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -46,7 +50,6 @@ public class SignDAO {
 	}
 	
 	public String findAccount (final String email) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -78,7 +81,6 @@ public class SignDAO {
 	}
 
 	public boolean joinAccount (final String email, final String password) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -95,7 +97,6 @@ public class SignDAO {
 	}
 	
 	public boolean withdrawAccount (final String email) {
-		JdbcTemplate t = new JdbcTemplate();
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override
@@ -107,8 +108,7 @@ public class SignDAO {
 		return (Boolean) t.execute(query, pss);
 	}
 
-	public static boolean changePassword(final String email, final String newPassword) {
-		JdbcTemplate t = new JdbcTemplate();
+	public boolean changePassword(final String email, final String newPassword) {
 		PreparedStatementSetter pss = new PreparedStatementSetter() {
 
 			@Override

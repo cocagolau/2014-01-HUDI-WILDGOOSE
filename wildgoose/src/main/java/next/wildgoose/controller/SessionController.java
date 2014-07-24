@@ -42,6 +42,7 @@ public class SessionController implements Controller {
 				String email = request.getParameter("email");
 				result = joinedEmail(request, email);
 			}
+			
 		} else if (uri.check(1, "rand")) {
 			result = getRanomNumber(request);
 		}
@@ -65,6 +66,7 @@ public class SessionController implements Controller {
 		if(isJoinable(signDao, email)){
 			accountResult.setStatus(500);
 			accountResult.setMessage(Constants.MSG_EXIST_ID);
+			
 		} else {
 			accountResult.setStatus(200);
 			accountResult.setMessage("OK");
@@ -75,6 +77,7 @@ public class SessionController implements Controller {
 	}
 	
 	private boolean isJoinable(SignDAO signDao, String email) {
+		
 		if (isValidEmail(email)) {
 			return !signDao.findEmail(email);
 		}

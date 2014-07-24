@@ -95,7 +95,7 @@
 	
 
 	<!-- Context Parameters -->
-	<context-param>
+	<!-- <context-param>
 		<param-name>driverClassName</param-name>
 		<param-value>com.mysql.jdbc.Driver</param-value>
 	</context-param>
@@ -110,7 +110,7 @@
 	<context-param>
 		<param-name>userPassword</param-name>
 		<param-value></param-value>
-	</context-param>
+	</context-param> -->
 	<context-param>
 		<param-name>encoding</param-name>
 		<param-value>UTF-8</param-value>
@@ -124,9 +124,9 @@
 	
 
 	<!-- Listeners -->
-	<listener>
+	<!-- <listener>
 		<listener-class>next.wildgoose.database.DatabaseListener</listener-class>
-	</listener>
+	</listener> -->
 	<listener>
 		<listener-class>next.wildgoose.web.WebListener</listener-class>
 	</listener>
