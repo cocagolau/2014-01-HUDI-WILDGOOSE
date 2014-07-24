@@ -1,4 +1,4 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import java.util.Map;
 
@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Component;
 
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.dto.result.SimpleResult;
-import next.wildgoose.framework.BackController;
-import next.wildgoose.framework.Result;
+import next.wildgoose.framework.Controller;
 
 @Component("error")
-public class ErrorController implements BackController {
+public class ErrorController implements Controller {
 
 	@Override
 	public Result execute(HttpServletRequest request) {

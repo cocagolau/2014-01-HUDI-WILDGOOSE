@@ -1,4 +1,4 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import next.wildgoose.dto.NumberOfArticles;
 import next.wildgoose.dto.Reporter;
 import next.wildgoose.dto.StatPoints;
 import next.wildgoose.dto.result.ReporterResult;
-import next.wildgoose.framework.BackController;
-import next.wildgoose.framework.Result;
+import next.wildgoose.dto.result.Result;
+import next.wildgoose.framework.Controller;
 import next.wildgoose.framework.utility.Uri;
 import next.wildgoose.utility.Constants;
 
@@ -23,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("reporters")
-public class ReporterController implements BackController {
+public class ReporterController implements Controller {
 	
 	@Autowired
 	private ReporterDAO reporterDao;

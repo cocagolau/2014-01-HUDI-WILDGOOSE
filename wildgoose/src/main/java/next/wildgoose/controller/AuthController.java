@@ -1,17 +1,17 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import next.wildgoose.dao.SignDAO;
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.dto.result.SimpleResult;
-import next.wildgoose.framework.BackController;
-import next.wildgoose.framework.Result;
+import next.wildgoose.framework.Controller;
 import next.wildgoose.utility.Constants;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class AuthController implements BackController {
+public abstract class AuthController implements Controller {
 
 	@Override
 	public abstract Result execute(HttpServletRequest request);

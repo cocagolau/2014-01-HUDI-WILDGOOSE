@@ -6,7 +6,6 @@ import next.wildgoose.dto.Article;
 import next.wildgoose.dto.NumberOfArticles;
 import next.wildgoose.dto.Reporter;
 import next.wildgoose.dto.StatPoints;
-import next.wildgoose.framework.Result;
 
 public class ReporterResult extends Result {
 

@@ -1,4 +1,4 @@
-package next.wildgoose.backcontroller;
+package next.wildgoose.controller;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import next.wildgoose.dao.ReporterDAO;
 import next.wildgoose.dto.Article;
 import next.wildgoose.dto.Reporter;
 import next.wildgoose.dto.result.MeResult;
-import next.wildgoose.framework.Result;
+import next.wildgoose.dto.result.Result;
 import next.wildgoose.framework.utility.Uri;
 import next.wildgoose.framework.utility.Utility;
 import next.wildgoose.utility.Constants;

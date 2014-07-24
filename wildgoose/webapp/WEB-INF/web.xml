@@ -128,12 +128,6 @@
 		<listener-class>next.wildgoose.database.DatabaseListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>next.wildgoose.dao.DaoListener</listener-class>
-	</listener>
-	<listener>
-		<listener-class>next.wildgoose.backcontroller.BackControllerListener</listener-class>
-	</listener>
-	<listener>
 		<listener-class>next.wildgoose.web.WebListener</listener-class>
 	</listener>
 	<listener>
