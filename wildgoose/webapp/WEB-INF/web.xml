@@ -105,12 +105,9 @@
 		<param-name>debuggerMode</param-name>
 		<param-value>on</param-value>
 	</context-param>
-	
 
-	<!-- <listener>
-		<listener-class>next.wildgoose.web.WebListener</listener-class>
-	</listener> -->
 	
+	<!-- Listener -->
 	<listener>
 		<listener-class>next.wildgoose.framework.listener.ServletContextLoader</listener-class>
 	</listener>
@@ -127,6 +124,13 @@
 		<filter-class>next.wildgoose.framework.filter.EncodingFilter</filter-class>
 	</filter>
 	<filter>
+		<description>
+		</description>
+		<display-name>SessionFilter</display-name>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>next.wildgoose.framework.filter.SessionFilter</filter-class>
+	</filter>
+	<filter>
 		<display-name>QueryFilter</display-name>
 		<filter-name>QueryFilter</filter-name>
 		<filter-class>next.wildgoose.framework.filter.QueryFilter</filter-class>
@@ -135,6 +139,10 @@
 	<!-- Filter Mapping -->
 	<filter-mapping>
 		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>

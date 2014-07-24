@@ -2,6 +2,7 @@ package next.wildgoose.utility;
 
 public class Constants {
 	public static final String DEFAULT_RESOURCE = "search";
+	public static final String[] RESOURCES = { "accounts", "error", "me", "reporters", "search", "session", "templates", "users" };
 	
 	public static final String DEFAULT_REDIRECT_PREFIX = "redirect:";
 	public static final String DEFAULT_API_PREFIX = "api";

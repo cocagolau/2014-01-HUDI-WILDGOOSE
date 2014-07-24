@@ -61,6 +61,8 @@ public class SearchController implements Controller {
 	
 	private SearchResult getAutoCompleteResult(HttpServletRequest request, String searchQuery, int howMany) {
 		SearchResult searchResult = new SearchResult();
+		LOGGER.debug("searchQueru: " + searchQuery + ",  howMany: " + howMany);
+
 		List<Reporter> reporters = reporterDao.getSimilarNames(searchQuery, howMany);
 		
 		searchResult.setStatus(200);
