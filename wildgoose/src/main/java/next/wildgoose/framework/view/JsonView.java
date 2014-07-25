@@ -15,8 +15,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component("json")
-public class JSONView implements View {
-	private static final Logger LOGGER = LoggerFactory.getLogger(JSONView.class.getName());
+public class JsonView implements View {
+	private static final Logger LOGGER = LoggerFactory.getLogger(JsonView.class.getName());
 
 	@Override
 	public void show(HttpServletRequest request, HttpServletResponse response, Result resultData){

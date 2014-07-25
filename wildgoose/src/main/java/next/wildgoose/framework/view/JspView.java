@@ -14,8 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component("jsp")
-public class JSPView implements View {
-	private static final Logger LOGGER = LoggerFactory.getLogger(JSPView.class.getName());
+public class JspView implements View {
+	private static final Logger LOGGER = LoggerFactory.getLogger(JspView.class.getName());
 
 	@Override
 	public void show(HttpServletRequest request, HttpServletResponse response, Result resultData) throws ServletException, IOException{
