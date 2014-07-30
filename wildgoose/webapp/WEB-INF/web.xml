@@ -107,11 +107,7 @@
 	</context-param>
 
 	
-	<!-- Listener -->
-	<listener>
-		<listener-class>next.wildgoose.framework.listener.ServletContextLoader</listener-class>
-	</listener>
-	
+	<!-- Listener -->	
 	<listener>
 		<listener-class>next.wildgoose.framework.ErrorListener</listener-class>
 	</listener>

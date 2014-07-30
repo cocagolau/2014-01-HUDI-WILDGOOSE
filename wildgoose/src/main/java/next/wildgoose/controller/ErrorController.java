@@ -4,25 +4,31 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import next.wildgoose.framework.Controller;
 
 import org.springframework.stereotype.Component;
-
-import next.wildgoose.dto.result.Result;
-import next.wildgoose.dto.result.SimpleResult;
-import next.wildgoose.framework.Controller;
 
 @Component("error")
 public class ErrorController implements Controller {
 
 	@Override
-	public Result execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
 		ServletContext context = request.getServletContext();
 		Map<Integer, String> errorCodeMap = (Map<Integer, String>)context.getAttribute("errorCodeMap");
 		
-		Result result = new SimpleResult();
-		result.setStatus(404);
-		result.setMessage(errorCodeMap.get(404));
-		return result;
+		int status = 500;
+		String message = "failure";
+		
+		status = 404;
+		message = errorCodeMap.get(status);
+		
+		model.put("status", status);
+		model.put("message", message);
+		
+		return "error";
+		
 	}
 
 }
