@@ -95,22 +95,6 @@
 	
 
 	<!-- Context Parameters -->
-	<!-- <context-param>
-		<param-name>driverClassName</param-name>
-		<param-value>com.mysql.jdbc.Driver</param-value>
-	</context-param>
-	<context-param>
-		<param-name>dbUrl</param-name>
-		<param-value>jdbc:mysql://10.73.45.134:3306/wildgoose_dev</param-value>
-	</context-param>
-	<context-param>
-		<param-name>userName</param-name>
-		<param-value>viewer</param-value>
-	</context-param>
-	<context-param>
-		<param-name>userPassword</param-name>
-		<param-value></param-value>
-	</context-param> -->
 	<context-param>
 		<param-name>encoding</param-name>
 		<param-value>UTF-8</param-value>
@@ -121,15 +105,9 @@
 		<param-name>debuggerMode</param-name>
 		<param-value>on</param-value>
 	</context-param>
-	
 
-	<!-- Listeners -->
-	<!-- <listener>
-		<listener-class>next.wildgoose.database.DatabaseListener</listener-class>
-	</listener> -->
-	<listener>
-		<listener-class>next.wildgoose.web.WebListener</listener-class>
-	</listener>
+	
+	<!-- Listener -->	
 	<listener>
 		<listener-class>next.wildgoose.framework.ErrorListener</listener-class>
 	</listener>
@@ -142,6 +120,13 @@
 		<filter-class>next.wildgoose.framework.filter.EncodingFilter</filter-class>
 	</filter>
 	<filter>
+		<description>
+		</description>
+		<display-name>SessionFilter</display-name>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>next.wildgoose.framework.filter.SessionFilter</filter-class>
+	</filter>
+	<filter>
 		<display-name>QueryFilter</display-name>
 		<filter-name>QueryFilter</filter-name>
 		<filter-class>next.wildgoose.framework.filter.QueryFilter</filter-class>
@@ -150,6 +135,10 @@
 	<!-- Filter Mapping -->
 	<filter-mapping>
 		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
