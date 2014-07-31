@@ -14,8 +14,9 @@ import javax.servlet.http.HttpSession;
 
 import next.wildgoose.dao.SignDAO;
 import next.wildgoose.framework.Controller;
+import next.wildgoose.framework.model.Model;
+import next.wildgoose.framework.resource.Uri;
 import next.wildgoose.framework.security.SHA256;
-import next.wildgoose.framework.utility.Uri;
 import next.wildgoose.utility.Constants;
 
 import org.slf4j.Logger;
@@ -32,7 +33,7 @@ public class AccountController implements Controller {
 	private SignDAO signDao;
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	public String execute(HttpServletRequest request, HttpServletResponse response, Model model) {
 		Uri uri = new Uri(request);
 		String method = request.getMethod();
 
@@ -65,7 +66,7 @@ public class AccountController implements Controller {
 	}
 	
 	//	join
-	private String join(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	private String join(HttpServletRequest request, HttpServletResponse response, Model model) {
 		int status = 500;
 		String message = "adding user account failed";
 		String email = request.getParameter("email");
@@ -87,7 +88,7 @@ public class AccountController implements Controller {
 	}
 	
 	// withdraw	
-	private String withdraw(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	private String withdraw(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String email = request.getParameter("email");
 		String hashedPassword = request.getParameter("password");
 
@@ -118,7 +119,7 @@ public class AccountController implements Controller {
 	
 	
 	// usedEmail
-	private String usedEmail(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	private String usedEmail(HttpServletRequest request, HttpServletResponse response, Model model) {
 		int status = 500;
 		String message = "fetching account info failed";
 		String email = request.getParameter("email");
@@ -139,7 +140,7 @@ public class AccountController implements Controller {
 	
 	
 	// changePassword
-	private String changePassword(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	private String changePassword(HttpServletRequest request, HttpServletResponse response, Model model) {
 		int status = 500;
 		String message = "failure";
 

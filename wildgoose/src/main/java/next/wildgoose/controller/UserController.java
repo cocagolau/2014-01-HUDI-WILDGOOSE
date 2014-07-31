@@ -1,14 +1,14 @@
 package next.wildgoose.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import next.wildgoose.dao.FavoriteDAO;
 import next.wildgoose.dto.Reporter;
-import next.wildgoose.framework.utility.Uri;
+import next.wildgoose.framework.model.Model;
+import next.wildgoose.framework.resource.Uri;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,7 @@ public class UserController extends AuthController {
 	private FavoriteDAO favoriteDao;
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	public String execute(HttpServletRequest request, HttpServletResponse response, Model model) {
 		Uri uri = new Uri(request);
 		
 		String userId = uri.get(1);
@@ -70,7 +70,7 @@ public class UserController extends AuthController {
 		
 	}
 	
-	private String getFavorites(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, String userId) {
+	private String getFavorites(HttpServletRequest request, HttpServletResponse response, Model model, String userId) {
 		int status = 200;
 		String message = "OK";
 		List<Reporter> reporters = favoriteDao.findFavoriteReporters(userId);
@@ -84,7 +84,7 @@ public class UserController extends AuthController {
 	}
 	
 
-	private String isFavorite(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, String userId, int reporterId) {
+	private String isFavorite(HttpServletRequest request, HttpServletResponse response, Model model, String userId, int reporterId) {
 		int status = 200;
 		String message = "success";
 		
@@ -97,7 +97,7 @@ public class UserController extends AuthController {
 	}
 	
 
-	private String modifyFavorites(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, String how, String userId) {
+	private String modifyFavorites(HttpServletRequest request, HttpServletResponse response, Model model, String how, String userId) {
 		int status = 500;
 		String message = "failure";
 		int reporterId = Integer.parseInt(request.getParameter("reporter_id"));

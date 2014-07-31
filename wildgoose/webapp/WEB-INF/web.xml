@@ -109,7 +109,7 @@
 	
 	<!-- Listener -->	
 	<listener>
-		<listener-class>next.wildgoose.framework.ErrorListener</listener-class>
+		<listener-class>next.wildgoose.framework.listener.ErrorListener</listener-class>
 	</listener>
 	
 	

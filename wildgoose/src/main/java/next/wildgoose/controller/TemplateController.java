@@ -1,14 +1,13 @@
 package next.wildgoose.controller;
 
-import java.util.Map;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import next.wildgoose.framework.Controller;
+import next.wildgoose.framework.model.Model;
+import next.wildgoose.framework.resource.Uri;
 import next.wildgoose.framework.support.ResourceLoader;
-import next.wildgoose.framework.utility.Uri;
 import next.wildgoose.utility.Constants;
 
 import org.springframework.stereotype.Component;
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class TemplateController implements Controller {
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	public String execute(HttpServletRequest request, HttpServletResponse response, Model model) {
 		ServletContext context = request.getServletContext();
 		Uri uri = new Uri(request);
 		

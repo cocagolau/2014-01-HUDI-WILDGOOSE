@@ -1,7 +1,6 @@
 package next.wildgoose.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import next.wildgoose.dao.ReporterDAO;
 import next.wildgoose.dto.Reporter;
 import next.wildgoose.framework.Controller;
+import next.wildgoose.framework.model.Model;
 import next.wildgoose.framework.utility.Utility;
 import next.wildgoose.utility.Constants;
 
@@ -22,7 +22,7 @@ public class SearchController implements Controller {
 	private ReporterDAO reporterDao;
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	public String execute(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String searchQuery = request.getParameter("q");
 		boolean autoComplete = (request.getParameter("autocomplete") != null)? Boolean.parseBoolean(request.getParameter("autocomplete")) : false;
 		int howMany = (request.getParameter("how_many") != null)? Integer.parseInt(request.getParameter("how_many")) : Constants.NUM_OF_CARDS;
@@ -62,7 +62,7 @@ public class SearchController implements Controller {
 		
 	}
 	
-	private String checkQuery(String searchQuery, Map<String, Object> model) {
+	private String checkQuery(String searchQuery, Model model) {
 		int status = 500;
 		String message = "failure";
 		
@@ -96,7 +96,7 @@ public class SearchController implements Controller {
 	}
 		
 	
-	private String getAutoCompleteResult(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, String searchQuery, int howMany) {
+	private String getAutoCompleteResult(HttpServletRequest request, HttpServletResponse response, Model model, String searchQuery, int howMany) {
 		int status = 200;
 		String message = "OK";
 		List<Reporter> reporters = reporterDao.getSimilarNames(searchQuery, howMany);
@@ -111,7 +111,7 @@ public class SearchController implements Controller {
 	}
 		
 	
-	private String getSearchResult (HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, String searchQuery, int start, int howMany) {
+	private String getSearchResult (HttpServletRequest request, HttpServletResponse response, Model model, String searchQuery, int start, int howMany) {
 		int status = 200;
 		String message = "OK";
 		List<Reporter> reporters = null;
@@ -134,7 +134,7 @@ public class SearchController implements Controller {
 	}
 	
 
-	private String getSearchResult(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, String searchQuery, int howMany) {
+	private String getSearchResult(HttpServletRequest request, HttpServletResponse response, Model model, String searchQuery, int howMany) {
 		
 		return this.getSearchResult(request, response, model, searchQuery, 0, howMany);
 		

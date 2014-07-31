@@ -1,7 +1,6 @@
 package next.wildgoose.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,8 @@ import next.wildgoose.dto.NumberOfArticles;
 import next.wildgoose.dto.Reporter;
 import next.wildgoose.dto.StatPoints;
 import next.wildgoose.framework.Controller;
-import next.wildgoose.framework.utility.Uri;
+import next.wildgoose.framework.model.Model;
+import next.wildgoose.framework.resource.Uri;
 import next.wildgoose.utility.Constants;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class ReporterController implements Controller {
 	private DummyData dummy;
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	public String execute(HttpServletRequest request, HttpServletResponse response, Model model) {
 		Uri uri = new Uri(request);
 		int reporterId = Integer.parseInt(uri.get(1));
 		
@@ -75,7 +75,7 @@ public class ReporterController implements Controller {
 	}
 
 	
-	private String getRandomReporters(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, int reportersNum) {
+	private String getRandomReporters(HttpServletRequest request, HttpServletResponse response, Model model, int reportersNum) {
 		int status = 200;
 		String message = "OK";
 		HttpSession session = request.getSession();
@@ -104,7 +104,7 @@ public class ReporterController implements Controller {
 		
 	}
 	
-	private String getReporterPage(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, int reporterId) {
+	private String getReporterPage(HttpServletRequest request, HttpServletResponse response, Model model, int reporterId) {
 		int status = 200;
 		String message = "OK";
 		Reporter reporter = null;
@@ -124,7 +124,7 @@ public class ReporterController implements Controller {
 	}
 	
 	
-	private String getGraphData(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, int reporterId) {
+	private String getGraphData(HttpServletRequest request, HttpServletResponse response, Model model, int reporterId) {
 		int status = 500;
 		String message = "failure"; 
 		String graph = request.getParameter("data");

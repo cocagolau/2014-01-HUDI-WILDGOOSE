@@ -1,7 +1,6 @@
 package next.wildgoose.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +10,8 @@ import next.wildgoose.dao.FavoriteDAO;
 import next.wildgoose.dao.ReporterDAO;
 import next.wildgoose.dto.Article;
 import next.wildgoose.dto.Reporter;
-import next.wildgoose.framework.utility.Uri;
+import next.wildgoose.framework.model.Model;
+import next.wildgoose.framework.resource.Uri;
 import next.wildgoose.utility.Constants;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class MeController extends AuthController {
 	@Autowired
 	private ReporterDAO reporterDao;
 	
-	public String execute(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	public String execute(HttpServletRequest request, HttpServletResponse response, Model model) {
 		Uri uri = new Uri(request);
 		int status = 500;
 		String message = "failure";
