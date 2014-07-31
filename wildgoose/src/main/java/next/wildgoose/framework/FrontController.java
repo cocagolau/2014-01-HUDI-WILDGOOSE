@@ -1,15 +1,14 @@
 package next.wildgoose.framework;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import next.wildgoose.framework.utility.Uri;
+import next.wildgoose.framework.model.Model;
+import next.wildgoose.framework.resource.Uri;
 import next.wildgoose.framework.view.View;
 
 import org.slf4j.Logger;
@@ -43,12 +42,12 @@ public class FrontController extends HttpServlet {
 			
 		}
 		
-		Map<String, Object> model = new HashMap<String, Object>();
-		String viewName = controller.execute(request, response, model);
-		
-		LOGGER.debug("view: " + viewName);
-		
+		Model model = new Model();
 		View view = uri.createView(applicationContext);
+		
+		String viewName = controller.execute(request, response, model);
+		LOGGER.debug("view: " + viewName);
+
 		view.show(request, response, model, viewName);
 		
 	}

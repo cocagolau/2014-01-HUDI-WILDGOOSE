@@ -1,6 +1,5 @@
 package next.wildgoose.controller;
 
-import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,9 +8,10 @@ import javax.servlet.http.HttpSession;
 
 import next.wildgoose.dao.SignDAO;
 import next.wildgoose.framework.Controller;
+import next.wildgoose.framework.model.Model;
+import next.wildgoose.framework.resource.Uri;
 import next.wildgoose.framework.security.RandomNumber;
 import next.wildgoose.framework.security.SHA256;
-import next.wildgoose.framework.utility.Uri;
 import next.wildgoose.utility.Constants;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class SessionController implements Controller {
 	private SignDAO signDao;
 	
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	public String execute(HttpServletRequest request, HttpServletResponse response, Model model) {
 		Uri uri = new Uri(request);
 		String method = request.getMethod();
 		
@@ -57,7 +57,7 @@ public class SessionController implements Controller {
 	
 	
 	// login	
-	private String login(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	private String login(HttpServletRequest request, HttpServletResponse response, Model model) {
 		int status = 500;
 		String message = "failure";
 		String email = request.getParameter("email");
@@ -100,7 +100,7 @@ public class SessionController implements Controller {
 	
 	
 
-	private String logout(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	private String logout(HttpServletRequest request, HttpServletResponse response, Model model) {
 		int status = 200;
 		String message = "OK";
 
@@ -115,7 +115,7 @@ public class SessionController implements Controller {
 	}
 	
 	
-	private String joinedEmail(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, String email) {
+	private String joinedEmail(HttpServletRequest request, HttpServletResponse response, Model model, String email) {
 		int status = 200;
 		String message = "OK";
 		
@@ -133,7 +133,7 @@ public class SessionController implements Controller {
 	}
 	
 	
-	private String getRanomNumber(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	private String getRanomNumber(HttpServletRequest request, HttpServletResponse response, Model model) {
 		int status = 200;
 		String message = "OK";
 		String randNum = RandomNumber.set(request.getSession());

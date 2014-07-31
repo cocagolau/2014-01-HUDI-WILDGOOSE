@@ -1,13 +1,12 @@
 package next.wildgoose.controller;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import next.wildgoose.dao.SignDAO;
 import next.wildgoose.framework.Controller;
+import next.wildgoose.framework.model.Model;
 import next.wildgoose.utility.Constants;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public abstract class AuthController implements Controller {
 	@Autowired
 	protected SignDAO signDao;
 	
-	public String authenticate(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, String userId) {
+	public String authenticate(HttpServletRequest request, HttpServletResponse response, Model model, String userId) {
 		int status = 500;
 		String message = "failure";
 		String pageName = null;

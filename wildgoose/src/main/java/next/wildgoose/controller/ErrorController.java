@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import next.wildgoose.framework.Controller;
+import next.wildgoose.framework.model.Model;
 
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class ErrorController implements Controller {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
+	public String execute(HttpServletRequest request, HttpServletResponse response, Model model) {
 		ServletContext context = request.getServletContext();
 		Map<Integer, String> errorCodeMap = (Map<Integer, String>)context.getAttribute("errorCodeMap");
 		
