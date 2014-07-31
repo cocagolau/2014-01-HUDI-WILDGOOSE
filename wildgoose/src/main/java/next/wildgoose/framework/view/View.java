@@ -6,8 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import next.wildgoose.dto.result.Result;
+import next.wildgoose.framework.model.Model;
 
 public interface View {
-	void show(HttpServletRequest request, HttpServletResponse response, Result resultData) throws ServletException, IOException;
+	
+	void show (HttpServletRequest request, HttpServletResponse response, Model model, String viewName) throws ServletException, IOException;
+	
 }

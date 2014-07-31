@@ -1,4 +1,4 @@
-package next.wildgoose.framework;
+package next.wildgoose.framework.listener;
 
 import java.util.HashMap;
 import java.util.Map;

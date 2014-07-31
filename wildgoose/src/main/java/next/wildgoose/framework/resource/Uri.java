@@ -1,4 +1,4 @@
-package next.wildgoose.framework.utility;
+package next.wildgoose.framework.resource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,6 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+
+import next.wildgoose.framework.view.View;
+import next.wildgoose.utility.Constants;
+
+import org.springframework.context.ApplicationContext;
 
 public class Uri {
 	private List<String> resources;
@@ -22,11 +27,28 @@ public class Uri {
 	}
 	
 	public String getPrimeResource() {
-		return get(0);
+		String resource = get(0);
+		
+		if ("".equals(resource)) {
+			return Constants.DEFAULT_RESOURCE;
+		}
+		
+		return resource;
 	}
 	
 	public boolean isAPI() {
 		return this.api;
+	}
+	
+	public String getViewType() {
+		String viewType = "jsp";
+		
+		// 요청종류에 따라 뷰 구현체의 인스턴스를 마련한다.
+		if (isAPI()) {
+			viewType = "json";
+		}
+		
+		return viewType;
 	}
 	
 	private List<String> regularizedList(String[] uriArr) {
@@ -109,4 +131,16 @@ public class Uri {
 		}
 		return operand.equals(uri);
 	}
+
+	public View createView(ApplicationContext applicationContext) {
+		String viewType = "jsp";
+		
+		// 요청종류에 따라 뷰 구현체의 인스턴스를 마련한다.
+		if (isAPI()) {
+			viewType = "json";
+		}
+		
+		return applicationContext.getBean(viewType, View.class);
+	}
+
 }

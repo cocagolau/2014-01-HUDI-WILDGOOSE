@@ -1,9 +1,12 @@
 package next.wildgoose.framework;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import next.wildgoose.dto.result.Result;
+import next.wildgoose.framework.model.Model;
 
 public interface Controller {
-	public Result execute(HttpServletRequest request);
+	
+	public String execute(HttpServletRequest request, HttpServletResponse response, Model model);
+	
 }

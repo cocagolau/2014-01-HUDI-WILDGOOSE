@@ -1,46 +1,60 @@
 package next.wildgoose.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import next.wildgoose.dao.SignDAO;
-import next.wildgoose.dto.result.Result;
-import next.wildgoose.dto.result.SimpleResult;
 import next.wildgoose.framework.Controller;
+import next.wildgoose.framework.model.Model;
 import next.wildgoose.utility.Constants;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AuthController implements Controller {
 
-	@Override
-	public abstract Result execute(HttpServletRequest request);
-	
 	@Autowired
 	protected SignDAO signDao;
 	
-	public SimpleResult authenticate(HttpServletRequest request, String userId) {
-		SimpleResult sResult = null;
+	public String authenticate(HttpServletRequest request, HttpServletResponse response, Model model, String userId) {
+		int status = 500;
+		String message = "failure";
+		String pageName = null;
+		
 		if (!isValidUserId(request, userId)) {
-			sResult = new SimpleResult();
-			sResult.setStatus(404);
-			sResult.setPageName("join");
-			sResult.setMessage(Constants.MSG_WRONG_ID);
-			return sResult;
+			status = 404;
+			message = Constants.MSG_WRONG_ID;
+			pageName = "join";
+
+			model.put("status", status);
+			model.put("message", message);
+			model.put("pageName", pageName);
+			
+			return "error";
+			
 		}
 		
 		HttpSession session = request.getSession();
 		String visitor = (String) session.getAttribute("userId");
 		
+		// 로그인 하도록 유도하기
 		if (visitor == null) {
-			sResult = new SimpleResult();
-			sResult.setStatus(401);
-			sResult.setPageName("login");
-			sResult.setMessage(Constants.MSG_AUTH_NEED);
-			// 로그인 하도록 유도하기
+			status = 401;
+			message = Constants.MSG_AUTH_NEED;
+			pageName = "login";
+			
+			model.put("status", status);
+			model.put("message", message);
+			model.put("pageName", pageName);
+			
+			return "error";
+			
 		}
-		return sResult;
+
+		return null;
+		
 	}
+	
 	private boolean isValidUserId(HttpServletRequest request, String userId) {
 		if (signDao.findEmail(userId)) {
 			return true;
