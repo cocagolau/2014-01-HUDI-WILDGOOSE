@@ -22,33 +22,36 @@
 				withdraw: null,
 				changePw: null
 			};
-		
-			this.cache = {
-				settingHandler: this._settingHandler.bind(this),
-				submitHandler: this._submitHandler.bind(this),
-				openPopup: this._openPopup.bind(this),
-				closePopup: this._closePopup.bind(this),
-				withdraw: this._withdraw.bind(this),
-				changePw: this._changePw.bind(this)
-			};
 			
-			this.template = {
-				setting: Template.get({"url":"/api/v1/templates/setting.html"}),
-				withdraw: null,
-				changePw: null
-			};
-			
-			this.account = {
-				withdraw: null,
-				changePw: null
+			if (this.button.setting !== null) {
+				this.cache = {
+					settingHandler: this._settingHandler.bind(this),
+					submitHandler: this._submitHandler.bind(this),
+					openPopup: this._openPopup.bind(this),
+					closePopup: this._closePopup.bind(this),
+					withdraw: this._withdraw.bind(this),
+					changePw: this._changePw.bind(this)
+				};
+				
+				this.template = {
+					setting: Template.get({"url":"/api/v1/templates/setting.html"}),
+					withdraw: null,
+					changePw: null
+				};
+				
+				this.account = {
+					withdraw: null,
+					changePw: null
+				}
+				
+				this.settingPopup = new Popup({
+					element: this.button.setting,
+					template: this.template.setting
+				});
+				
+				this.settingPopup.afteropen.add(this.cache.openPopup);
 			}
 			
-			this.settingPopup = new Popup({
-				element: this.button.setting,
-				template: this.template.setting
-			});
-			
-			this.settingPopup.afteropen.add(this.cache.openPopup);
 		},		
 		
 		_openPopup: function() {

@@ -85,41 +85,65 @@ li[class*='nav'] a  {
 <div class="topBar-inner-wrapper">
 <div class="topBar-left-nav">
 
-<c:choose>
-	<c:when test="${ empty sessionScope.userId }">
-		<ul class="nav-global <c:if test="${ not empty requestScope.data.pageName }">
-		${ requestScope.data.pageName }</c:if>">
-			<li class="nav-global-home"><a class="header-btn" href="/"><span class="text">검색</span></a></li>
-			<li class="nav-global-me hidden"><a class="header-btn" id="me"><span class="text">나</span></a></li>
-		</ul>
-		</div>
-		<div class="topBar-right-nav">
-		<ul class="nav">
-			<span id ="userId" class="hidden"></span>
-			<li class="nav-login"><a class="header-btn" id="login"><span class="text">로그인</span></a></li>
-			<li class="nav-join"><a class="header-btn" id="join"><span class="text">가입</span></a></li>
-			<li class="nav-logout hidden"><a class="header-btn" id="logout"><span class="text">로그아웃</span></a></li>
-			<li class="nav-setting hidden"><a class="header-btn" id="setting"><span class="text">설정</span></a></li>
-		</ul>
-	</c:when>
-	<c:otherwise>
-		<ul class="nav-global <c:if test="${ not empty requestScope.data.pageName }">
-		${ requestScope.data.pageName }</c:if>">
-			<li class="nav-global-home"><a class="header-btn" href="/"><span class="text">검색</span></a></li>
+	<!-- <li class="nav-global-menu">☰</li> -->
+	<%-- <c:choose>
+		<c:when test="${ empty sessionScope.userId }">
+			<ul class="nav-global <c:if test="${ not empty requestScope.data.pageName }">
+			${ requestScope.data.pageName }</c:if>">
+				
+				<li class="nav-global-home"><a class="header-btn" href="/"><span class="text">검색</span></a></li>
+				<li class="nav-global-me hidden"><a class="header-btn" id="me"><span class="text">나</span></a></li>
+			</ul>
+			</div>
+			<div class="topBar-right-nav">
+			<ul class="nav">
+				<span id ="userId" class="hidden"></span>
+				<li class="nav-login"><a class="header-btn" id="login"><span class="text">로그인</span></a></li>
+				<li class="nav-join"><a class="header-btn" id="join"><span class="text">가입</span></a></li>
+				<li class="nav-logout hidden"><a class="header-btn" id="logout"><span class="text">로그아웃</span></a></li>
+				<li class="nav-setting hidden"><a class="header-btn" id="setting"><span class="text">설정</span></a></li>
+			</ul>
+		</c:when>
+		<c:otherwise>
+			<ul class="nav-global <c:if test="${ not empty requestScope.data.pageName }">
+			${ requestScope.data.pageName }</c:if>">
+				<li class="nav-global-home"><a class="header-btn" href="/"><span class="text">검색</span></a></li>
+				<li class="nav-global-me"><a class="header-btn" id="me"><span class="text">나</span></a></li>
+			</ul>
+			</div>
+			<div class="topBar-right-nav">
+			<ul class="nav">
+				<span id ="userId" class="hidden">${sessionScope.userId}</span>
+				<li class="nav-login hidden"><a class="header-btn" id="login"><span class="text">로그인</span></a></li>
+				<li class="nav-join hidden"><a class="header-btn" id="join"><span class="text">가입</span></a></li>
+				<li class="nav-logout"><a class="header-btn" id="logout"><span class="text">로그아웃</span></a></li>
+				<li class="nav-setting"><a class="header-btn" id="setting"><span class="text">설정</span></a></li>
+			</ul>
+		</c:otherwise>
+	</c:choose> --%>
+	
+	<ul class="nav-global <c:if test="${ not empty requestScope.data.pageName }"> ${ requestScope.data.pageName }</c:if>">
+		<li class="nav-global-home"><a class="header-btn" href="/"><span class="text">검색</span></a></li>
+		<c:if test="${ not empty sessionScope.userId }">
 			<li class="nav-global-me"><a class="header-btn" id="me"><span class="text">나</span></a></li>
-		</ul>
-		</div>
-		<div class="topBar-right-nav">
-		<ul class="nav">
-			<span id ="userId" class="hidden">${sessionScope.userId}</span>
-			<li class="nav-login hidden"><a class="header-btn" id="login"><span class="text">로그인</span></a></li>
-			<li class="nav-join hidden"><a class="header-btn" id="join"><span class="text">가입</span></a></li>
-			<li class="nav-logout"><a class="header-btn" id="logout"><span class="text">로그아웃</span></a></li>
-			<li class="nav-setting"><a class="header-btn" id="setting"><span class="text">설정</span></a></li>
-		</ul>
-	</c:otherwise>
-</c:choose>
-
+		</c:if>
+		
+	</ul>
+</div>
+<div class="topBar-right-nav">
+	<ul class="nav">
+		<c:choose>
+			<c:when test="${ empty sessionScope.userId }">
+				<li class="nav-login"><a class="header-btn" id="login"><span class="text">로그인</span></a></li>
+				<li class="nav-join"><a class="header-btn" id="join"><span class="text">가입</span></a></li>
+			</c:when>
+			<c:otherwise>
+				<span id ="userId" class="hidden">${sessionScope.userId}</span>
+				<li class="nav-logout"><a class="header-btn" id="logout"><span class="text">로그아웃</span></a></li>
+				<li class="nav-setting"><a class="header-btn" id="setting"><span class="text">설정</span></a></li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
 </div>
 </div>
 </div>

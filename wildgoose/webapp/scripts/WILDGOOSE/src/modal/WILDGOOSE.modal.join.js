@@ -19,17 +19,18 @@
 			// 회원가입 버튼을 찾는다
 			this.joinBtn = document.querySelector("#join");
 			
-			// 버튼에 가입창을 연결시킨다
-			this.template = Template.get({"url":"/api/v1/templates/join.html"});
-			
-			this.joinPopup = new Popup({
-				element: this.joinBtn,
-				template: this.template
-			});
-			
-			// 가입창에 스크립트를 적용한다.
-			// Ajax로 불러온 팝업창에는 스크립트를 넣을 수 없기 때문이다.
-			this.joinPopup.afteropen.add(this._openPopup.bind(this));
+			if (this.joinBtn !== null) {
+				// 버튼에 가입창을 연결시킨다
+				this.template = Template.get({"url":"/api/v1/templates/join.html"});
+				this.joinPopup = new Popup({
+					element: this.joinBtn,
+					template: this.template
+				});
+				
+				// 가입창에 스크립트를 적용한다.
+				// Ajax로 불러온 팝업창에는 스크립트를 넣을 수 없기 때문이다.
+				this.joinPopup.afteropen.add(this._openPopup.bind(this));
+			}
 		},
 		
 		_openPopup: function() {

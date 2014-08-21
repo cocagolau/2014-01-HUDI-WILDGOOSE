@@ -20,16 +20,19 @@
 	var LoginModal = {
 		init: function() {
 			this.loginBtn = document.querySelector("#login");
-			this.template = Template.get({"url":"/api/v1/templates/login.html"});
 			
-			this.loginPopup = new Popup({
-				element: this.loginBtn,
-				template: this.template
-			});
-			
-			// 가입창에 스크립트를 적용한다.
-			// Ajax로 불러온 팝업창에는 스크립트를 넣을 수 없기 때문이다.
-			this.loginPopup.afteropen.add(this._openPopup.bind(this));
+			if (this.loginBtn !== null) {
+				this.template = Template.get({"url":"/api/v1/templates/login.html"});
+				
+				this.loginPopup = new Popup({
+					element: this.loginBtn,
+					template: this.template
+				});
+				
+				// 가입창에 스크립트를 적용한다.
+				// Ajax로 불러온 팝업창에는 스크립트를 넣을 수 없기 때문이다.
+				this.loginPopup.afteropen.add(this._openPopup.bind(this));
+			}
 		},
 		
 		_openPopup: function() {

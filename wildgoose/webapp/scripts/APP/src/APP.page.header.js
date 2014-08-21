@@ -33,20 +33,26 @@
 			var LogoutAccount = new Logout(args);
 			
 			var logoutBtn = document.querySelector("#logout");
-			logoutBtn.addEventListener("click", function() {
-//				LogoutAccount.stop();
-				LogoutAccount.exec(function() {
-					location.href="/";
-				});
-				
-			}.bind(this), false);
+			if (logoutBtn !== null) {
+				logoutBtn.addEventListener("click", function() {
+//					LogoutAccount.stop();
+					LogoutAccount.exec(function() {
+						location.href="/";
+					});
+					
+				}.bind(this), false);
+			}
+			
 		},
 		
 		_userPage: function() {
 			var mypageBtn = document.querySelector("#me");
-			mypageBtn.addEventListener("click", function() {
-				location.href = "/me/?user_id?".replace("?user_id?", this.userId);
-			}.bind(this), false);
+			if (mypageBtn !== null) {
+				mypageBtn.addEventListener("click", function() {
+					location.href = "/me/?user_id?".replace("?user_id?", this.userId);
+				}.bind(this), false);				
+			}
+			
 		}
 	};
 
