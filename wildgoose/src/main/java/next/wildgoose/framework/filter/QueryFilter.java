@@ -26,10 +26,14 @@ public class QueryFilter implements Filter {
 		
 		ServletContext sc = request.getServletContext();
 		String keyword = request.getParameter("q");
-		if (keyword != null && "".equals(keyword)) {
+		
+		/*
+		 * 검색키워드를 저장하는 부분이나 현재 searchKeywordDao가 구현되어있지 않음
+		if (keyword != null && !"".equals(keyword)) {
 			SearchKeywordDAO sdao = (SearchKeywordDAO) sc.getAttribute("SearchKeywordDAO");
 			sdao.addKeywordRecord(keyword);
 		}
+		*/
 		
 		chain.doFilter(request, response);
 	}

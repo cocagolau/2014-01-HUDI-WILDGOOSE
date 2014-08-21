@@ -29,43 +29,14 @@ public class SearchController implements Controller {
 		int startItem = (request.getParameter("start_item") != null)? Integer.parseInt(request.getParameter("start_item")) : -1;
 		String view = null;
 		
+		int status = 500;
+		String message = "failure";
+		
 		// 결과 반환
 		// 에러 혹은 root인 경우 반환
 		model.put("pageName", "home");
 		
-		view = checkQuery(searchQuery, model);
-		if (view != null) {
-			
-			return view;
-			
-		}
-		
-		// 자동완성 반환
-		if (autoComplete) {
-			view = getAutoCompleteResult(request, response, model, searchQuery, howMany);
-			
-			return view;
-			
-		// 결과를 특정 부분부터 반환
-		} else if (startItem != -1) {
-			view = getSearchResult(request, response, model, searchQuery, startItem, howMany);
-			
-			return view;
-			
-		// 결과를 처음부터 반환
-		} else {
-			view = getSearchResult(request, response, model, searchQuery, howMany);
-			
-			return view;
-			
-		}
-		
-	}
-	
-	private String checkQuery(String searchQuery, Model model) {
-		int status = 500;
-		String message = "failure";
-		
+		// jsp
 		if (searchQuery == null) {			
 			status = 200;
 			message = "OK";
@@ -91,7 +62,27 @@ public class SearchController implements Controller {
 			
 		}
 		
-		return null;
+		// return search result
+		
+		if (!autoComplete) {
+			if (startItem != -1) {
+				view = getSearchResult(request, response, model, searchQuery, startItem, howMany);
+				
+			} else {
+				view = getSearchResult(request, response, model, searchQuery, howMany);
+				
+			}
+			
+			return view;
+		}
+		
+		
+		// json
+		// 자동완성 반환
+		view = getAutoCompleteResult(request, response, model, searchQuery, howMany);
+		
+		return view;
+		
 		
 	}
 		
